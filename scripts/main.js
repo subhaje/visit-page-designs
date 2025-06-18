@@ -12,7 +12,7 @@ if (reserveBtns.length > 0) {
   reserveBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
       // For now, show a mock alert. Replace with navigation to 3.html as needed.
-      alert('Reservation started for this date! (Connect to next step)');
+      //alert('Reservation started for this date! (Connect to next step)');
       // window.location.href = '3.html';
     });
   });
@@ -22,7 +22,7 @@ const editBtn = document.querySelector('.reserve-visit');
 if (editBtn) {
   editBtn.addEventListener('click', function () {
     // For now, show a mock alert. Replace with navigation to 4.html as needed.
-    // alert('Continue/Edit reservation (Connect to next step)');
+    //// alert('Continue/Edit reservation (Connect to next step)');
     window.location.href = '4.html';
   });
 }
@@ -37,7 +37,7 @@ if (continueReservationBtn) {
 const reserveLaterBtn = document.getElementById('reserve-later');
 if (reserveLaterBtn) {
   reserveLaterBtn.addEventListener('click', function () {
-    alert('Reservation saved for later! (Connect to save logic)');
+    //alert('Reservation saved for later! (Connect to save logic)');
     // window.location.href = 'index.html';
   });
 }
@@ -60,7 +60,7 @@ if (backLink) {
 const saveLaterBtn = document.getElementById('save-later');
 if (saveLaterBtn) {
   saveLaterBtn.addEventListener('click', function () {
-    alert('Progress saved for later! (Connect to save logic)');
+    //alert('Progress saved for later! (Connect to save logic)');
     // window.location.href = 'index.html';
   });
 }
@@ -83,7 +83,7 @@ const createAccountLink = document.getElementById('create-account-link');
 if (createAccountLink) {
   createAccountLink.addEventListener('click', function (e) {
     e.preventDefault();
-    alert('Create customer account (Connect to account creation flow)');
+    //alert('Create customer account (Connect to account creation flow)');
   });
 }
 

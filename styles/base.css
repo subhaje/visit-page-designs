@@ -1,5 +1,5 @@
 :root {
-  --gh-primary: #009fe3;
+  --gh-primary: #075697;
   --gh-secondary: #005691;
   --gh-bg: #fff;
   --gh-text: #444;
@@ -421,45 +421,99 @@ body {
 }
 .gh-stepper {
   width: 100%;
-  max-width: 900px;
-  margin: 2.5rem auto 2.5rem auto;
+  max-width: 1200px;
+  margin: 2.5rem auto;
 }
 .gh-stepper ul {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
+  align-items: stretch;
   list-style: none;
   padding: 0;
   margin: 0;
+  position: relative;
 }
 .gh-step {
-  background: #e5e7eb;
-  color: #888;
+  background: #d6d6d6;
+  color: #666;
   font-weight: 500;
-  font-size: 1.08rem;
-  padding: 0.7rem 2.2rem;
-  border-radius: 2rem;
-  min-width: 120px;
+  font-size: 1.1rem;
+  padding: 16px 22px 15px 22px;
   text-align: center;
-  transition: background 0.2s, color 0.2s;
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(0% 0%, 90% 0%, 95% 50%, 90% 100%, 0% 100%, 5% 50%);
+  margin-left: -10px;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  white-space: nowrap;
+}
+.gh-step:first-child {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  clip-path: polygon(0% 0%, 90% 0%, 95% 50%, 90% 100%, 0% 100%);
+  margin-left: 0;
+  padding-left: 2rem;
+}
+.gh-step:last-child {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 5% 50%);
+  padding-right: 2rem;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 .gh-step-active {
-  background: var(--gh-secondary);
+  background: var(--gh-primary);
   color: #fff;
+  font-weight: 500;
+  z-index: 1;
+}
+.gh-step-completed {
+  background: #969696;
+  color: #fff;
+}
+@media (max-width: 1024px) {
+  .gh-step {
+    font-size: 1rem;
+    padding: 1rem 2.5rem;
+    min-width: 160px;
+  }
+}
+@media (max-width: 768px) {
+  .gh-stepper {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 1rem;
+  }
+  .gh-stepper ul {
+    width: max-content;
+    min-width: 100%;
+  }
+  .gh-step {
+    font-size: 0.9rem;
+    padding: 0.8rem 2rem;
+    min-width: 140px;
+  }
+}
+.gh-step:not(.gh-step-active):hover {
+  background: #d1d5db;
+  cursor: pointer;
 }
 .gh-form-section {
   max-width: 420px;
   margin: 0 auto 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 2rem;
+  padding-bottom: 2rem;
 }
 .gh-form-title {
   font-size: 1.18rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
-  color: #222;
+  color: #444;
 }
 .gh-label {
   font-size: 1rem;
@@ -504,10 +558,11 @@ body {
   flex-direction: column;
   gap: 1.1rem;
 }
-.gh-input {
+.gh-input,
+.gh-textarea {
   width: 100%;
-  padding: 0.7rem 1rem;
-  font-size: 1rem;
+  padding: 1rem 1.2rem;
+  font-size: 1.08rem;
   border: 1.5px solid #bfc7d1;
   border-radius: 0.4rem;
   background: #fff;
@@ -515,15 +570,6 @@ body {
   font-family: 'Roboto', var(--gh-font);
 }
 .gh-textarea {
-  width: 100%;
-  min-height: 60px;
-  padding: 0.7rem 1rem;
-  font-size: 1rem;
-  border: 1.5px solid #bfc7d1;
-  border-radius: 0.4rem;
-  background: #fff;
-  color: #222;
-  font-family: 'Roboto', var(--gh-font);
   resize: vertical;
 }
 .gh-char-count {
@@ -550,8 +596,8 @@ body {
   display: flex;
   align-items: center;
   gap: 0.3rem;
-  margin-bottom: 1.2rem;
-  margin-top: 0.2rem;
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
 }
 .gh-create-icon {
   font-size: 1.1rem;
@@ -573,11 +619,12 @@ body {
   width: 100%;
   max-width: 420px;
   outline: none;
+  background: #fff;
 }
 .gh-select-trigger {
   width: 100%;
-  padding: 0.7rem 1rem;
-  font-size: 1rem;
+  padding: 1rem 1.2rem;
+  font-size: 1.08rem;
   border: 1.5px solid #bfc7d1;
   border-radius: 0.4rem;
   background: #fff;
@@ -587,6 +634,7 @@ body {
   align-items: center;
   cursor: pointer;
   font-family: 'Roboto', var(--gh-font);
+  min-height: 52px;
 }
 .gh-custom-select[aria-expanded='true'] .gh-select-trigger {
   border-bottom-left-radius: 0;
@@ -609,6 +657,7 @@ body {
   margin: 0;
   padding: 0.3rem 0;
   list-style: none;
+  font-size: 1.08rem;
 }
 .gh-select-option {
   padding: 0.7rem 1rem;
@@ -640,7 +689,7 @@ body {
 .gh-not-found-label {
   font-size: 1.08rem;
   font-weight: 700;
-  margin: 1.5rem 0 0.2rem 0;
+  margin: 2rem 0 0.5rem 0;
   color: #222;
 }
 
@@ -655,7 +704,7 @@ body {
 
 .gh-add-icon {
   font-size: 1.2rem;
-  color: #bfc7d1;
+  color: #60a5fa;
   margin-right: 0.2rem;
   vertical-align: middle;
 }
@@ -687,13 +736,14 @@ body {
   margin: 1.5rem 0 1.2rem 0;
 }
 .gh-selected-attendees-title {
-  font-size: 1.08rem;
+  font-size: 1.18rem;
   font-weight: 700;
-  margin-bottom: 0.7rem;
-  color: #222;
+  color: #005691;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
 }
 .gh-selected-attendee {
-  margin-bottom: 0.7rem;
+  margin-left: 0.5rem;
 }
 .gh-selected-attendee-name {
   font-weight: 600;
@@ -701,7 +751,7 @@ body {
   display: block;
 }
 .gh-add-details-link {
-  color: #0074c2;
+  color: #60a5fa;
   font-size: 0.98rem;
   text-decoration: underline;
   cursor: pointer;
@@ -710,60 +760,56 @@ body {
 }
 .gh-add-details-link:hover,
 .gh-add-details-link:focus {
-  color: #003e6b;
+  color: #3b82f6;
 }
 
 .gh-attendee-details-form {
-  margin: 0.7rem 0 1.2rem 0.7rem;
-  padding: 1.1rem 1.2rem 1.2rem 0.7rem;
-  background: #fafbfc;
-  border-radius: 0.4rem;
-  border: 1.5px solid #e5e7eb;
+  background: #f6f7f8;
+  border: 1.5px solid #d1d5db;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 1.2rem;
   max-width: 480px;
+  position: relative;
 }
 .gh-attendee-details-label {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #222;
   margin-bottom: 0.2rem;
+  margin-top: 1.2rem;
 }
-.gh-attendee-details-input {
-  width: 100%;
-  padding: 0.7rem 1rem;
-  font-size: 1rem;
-  border: 1.5px solid #bfc7d1;
-  border-radius: 0.4rem;
-  background: #fff;
-  color: #222;
-  font-family: 'Roboto', var(--gh-font);
+.gh-attendee-details-label:first-child {
+  margin-top: 0;
 }
+.gh-attendee-details-input,
 .gh-attendee-details-textarea {
   width: 100%;
-  min-height: 60px;
-  padding: 0.7rem 1rem;
+  padding: 0.9rem 1.2rem;
   font-size: 1rem;
   border: 1.5px solid #bfc7d1;
   border-radius: 0.4rem;
   background: #fff;
   color: #222;
   font-family: 'Roboto', var(--gh-font);
-  resize: vertical;
 }
 .gh-attendee-details-char-count {
   font-size: 0.95rem;
   color: #888;
   font-weight: 400;
-  float: right;
-  margin-top: -1.5rem;
-  margin-bottom: 0.5rem;
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .gh-attendee-details-radio-group {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.2rem;
   margin-bottom: 0.5rem;
 }
 .gh-attendee-details-radio {
@@ -788,7 +834,10 @@ body {
 
 .gh-modal {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -796,8 +845,11 @@ body {
 }
 .gh-modal-overlay {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.25);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.25);
   z-index: 1;
 }
 .gh-modal-content {
@@ -805,7 +857,7 @@ body {
   z-index: 2;
   background: #fff;
   border-radius: 1rem;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
   padding: 2.5rem 2rem 2rem 2rem;
   max-width: 500px;
   width: 100%;
@@ -828,4 +880,8 @@ body {
 }
 .gh-modal-close .material-icons {
   font-size: 2rem;
+}
+
+.gh-add-not-on-list {
+  margin: 1.2rem 0 0.8rem 0;
 }
