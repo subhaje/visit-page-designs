@@ -819,7 +819,7 @@ input[type='radio'] {
   margin-bottom: 0.5rem;
   font-family: 'HelveticaNeue-Medium', sans-serif;
 }
-.gh-collapsible-trigger {
+.gh-collapsible-trigger, .gh-collapsible-trigger-id {
   display: flex;
   align-items: center;
   gap: 0.3rem;
@@ -828,14 +828,17 @@ input[type='radio'] {
   margin-top: 1rem;
   font-size: 14px;
   font-family: 'HelveticaNeue-Roman';
+  padding: 0 !important;
 }
-.gh-collapsible-trigger[aria-expanded='true'] {
-  /* Future expanded styles */
+.gh-collapsible-trigger-id {
+  margin-top: 4px !important;
+  margin-bottom: 16px !important;
 }
-.gh-collapsible-trigger:hover {
+ 
+.gh-collapsible-trigger:hover, .gh-collapsible-trigger-id:hover {
   color: #003e6b;
 }
-.gh-collapsible-trigger:focus {
+.gh-collapsible-trigger:focus, .gh-collapsible-trigger-id:focus {
   outline: 2px solid var(--gh-primary);
   outline-offset: 2px;
 }
@@ -843,9 +846,7 @@ input[type='radio'] {
   margin-bottom: 9px;
   animation: fadeIn 0.2s;
 }
-.gh-additional-info-fields-container {
-  /* ... */
-}
+
 #additional-info-fields{
   margin-top: 25px;
 }
@@ -1238,7 +1239,7 @@ input[type='checkbox'] {
   padding-top: 4px;
 }
 .gh-need-account {
-  margin-top: 12px;
+  margin-top: 6px;
   margin-bottom: 6px;
 }
 
