@@ -80,58 +80,117 @@
           </li>
         </ul>
       </div>
-      <div class="gh-additional-info-collapsed" id="additional-info-toggle" tabindex="0" role="button" aria-expanded="false">
-        <span class="material-symbols-outlined gh-add-icon gh-toggle-icon" aria-hidden="true">add_circle_outline</span>
-        <span class="gh-additional-info-label">Add an attendee not on the list</span>
+      <div class="gh-collapsible-trigger" id="additional-info-toggle" tabindex="0" role="button" aria-expanded="false" aria-controls="additional-info-fields">
+        <span class="material-symbols-outlined gh-collapsible-trigger__icon gh-toggle-icon" aria-hidden="true">add_circle_outline</span>
+        <span class="gh-collapsible-trigger__label">Add an attendee not on the list</span>
       </div>
-      <div id="selected-attendees-list"></div>
+      <div class="gh-form-col" id="additional-info-fields" hidden>
+        <h3 class="gh-form-title">Attendee Personal Info</h3>
+        <div class="gh-label-group">
+          <label for="salutation" class="gh-label">Salutation</label>
+          <input type="text" id="salutation" class="gh-input" />
+        </div>
+        <div class="gh-form-2-col-row">
+          <div class="gh-label-group">
+            <label for="first-name" class="gh-label">* First Name</label>
+            <input type="text" id="first-name" class="gh-input" />
+          </div>
+          <div class="gh-label-group">
+            <label for="last-name" class="gh-label">* Last Name</label>
+            <input type="text" id="last-name" class="gh-input" />
+          </div>
+        </div>
+        <div class="gh-label-group">
+          <label class="gh-label" for="suffix-select">Suffix</label>
+          <div class="gh-custom-select" id="suffix-select" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+            <button class="gh-select-trigger" aria-label="Select suffix" type="button">
+              <span class="gh-select-value">Select</span>
+              <span class="material-symbols-outlined">expand_more</span>
+            </button>
+            <ul class="gh-select-options" role="listbox" hidden>
+              <li class="gh-select-option" role="option" data-value="jr">
+                <span class="gh-option-bold">Jr.</span>
+              </li>
+              <li class="gh-select-option" role="option" data-value="sr">
+                <span class="gh-option-bold">Sr.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-      <div class="gh-additional-info-fields" id="additional-info-fields" hidden>
-        <div class="gh-additional-info-fields-container">
+        <h3 class="gh-form-title">Attendee Contact Info</h3>
+        <div class="gh-label-group">
+          <label for="email-attendee" class="gh-label">* Email</label>
+          <input type="email" id="email-attendee" class="gh-input" />
+        </div>
+        <div class="gh-form-2-col-row">
           <div class="gh-label-group">
-            <label for="year-established" class="gh-label">Year Established</label>
-            <input type="text" id="year-established" class="gh-input" placeholder="" />
+            <label for="phone-number" class="gh-label">* Phone Number</label>
+            <input type="tel" id="phone-number" class="gh-input" />
           </div>
           <div class="gh-label-group">
-            <label for="additional-locations" class="gh-label">Additional Location(s)</label>
-            <textarea id="additional-locations" class="gh-textarea" placeholder="City and State..."></textarea>
+            <label for="phone-extension" class="gh-label">Phone Extension</label>
+            <input type="text" id="phone-extension" class="gh-input" />
           </div>
-          <div class="gh-label-group">
-            <label for="project-focus" class="gh-label">Company or project focus
-              <span id="focus-count" class="gh-char-count">0/250</span></label>
-            <textarea id="project-focus" class="gh-textarea" maxlength="250" placeholder="Type here..."></textarea>
-          </div>
-          <div class="gh-label-group">
-            <label for="areas-interest-select" class="gh-label">Select areas of interest</label>
-            <div class="gh-custom-select" id="areas-interest-select" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
-              <button class="gh-select-trigger" aria-label="Select areas of interest" type="button">
-                <span class="gh-select-value">Select</span>
-                <span class="material-symbols-outlined">expand_more</span>
-              </button>
-              <ul class="gh-select-options" role="listbox" hidden>
-                <li class="gh-select-option" role="option" data-value="hvac">
-                  <span class="gh-option-bold">HVAC</span>
-                </li>
-                <li class="gh-select-option" role="option" data-value="plumbing">
-                  <span class="gh-option-bold">Plumbing</span>
-                </li>
-                <li class="gh-select-option" role="option" data-value="electrical">
-                  <span class="gh-option-bold">Electrical</span>
-                </li>
-                <li class="gh-select-option" role="option" data-value="controls">
-                  <span class="gh-option-bold">Controls</span>
-                </li>
-              </ul>
+        </div>
+        <div class="gh-label-group">
+          <label for="mobile-phone-number" class="gh-label">Mobile Phone Number</label>
+          <input type="tel" id="mobile-phone-number" class="gh-input" />
+        </div>
+
+        <h3 class="gh-form-title">Additional Attendee Info</h3>
+        <div class="gh-label-group">
+          <label for="job-title" class="gh-label">Job Title</label>
+          <input type="text" id="job-title" class="gh-input" />
+        </div>
+        <div class="gh-label-group">
+          <label for="fax-number" class="gh-label">Fax Number</label>
+          <input type="tel" id="fax-number" class="gh-input" />
+        </div>
+        <div class="gh-label-group">
+          <label for="badge-name" class="gh-label">* Name on Badge (How your name will appear on your badge)</label>
+          <input type="text" id="badge-name" class="gh-input" />
+        </div>
+        <div class="gh-label-group">
+          <label for="dietary-restrictions" class="gh-label">Dietary Restrictions/Special Requirements
+            <span id="dietary-count" class="gh-char-count">0/1200</span>
+          </label>
+          <textarea id="dietary-restrictions" class="gh-textarea" maxlength="1200" data-count-id="dietary-count" placeholder="Add text here"></textarea>
+        </div>
+        <div class="gh-label-group">
+          <label for="comments" class="gh-label">Comments
+            <span id="comments-count" class="gh-char-count">0/1200</span>
+          </label>
+          <textarea id="comments" class="gh-textarea" maxlength="1200" data-count-id="comments-count" placeholder="e.g. I'm interested in..."></textarea>
+        </div>
+        <div class="gh-form-2-col-row">
+          <div class="gh-label-group" role="radiogroup" aria-labelledby="prayer-time-label">
+            <label id="prayer-time-label" class="gh-label">Prayer Time?</label>
+            <div class="gh-radio-label-yn-container">
+              <label class="gh-radio-label" for="prayer-time-yes">
+                <input type="radio" id="prayer-time-yes" name="prayer-time" value="yes" class="gh-radio" />
+                <span class="gh-radio-label-text-yn">Yes</span>
+              </label>
+              <label class="gh-radio-label" for="prayer-time-no">
+                <input type="radio" id="prayer-time-no" name="prayer-time" value="no" class="gh-radio" />
+                <span class="gh-radio-label-text-yn">No</span>
+              </label>
             </div>
+          </div>
+          <div class="gh-label-group">
+            <label for="prayer-time-input" class="gh-label">Enter Time</label>
+            <input type="text" id="prayer-time-input" class="gh-input" />
           </div>
         </div>
       </div>
+      <div id="selected-attendees-list"></div>
       <div class="gh-need-account">
         <p>Need to add another account?</p>
-        <a href="#" id="create-account-link-bottom">
-          <span class="material-symbols-outlined gh-create-icon" aria-hidden="true">person_add_alt</span>
-          <span class="gh-create-label">Add another customer account</span>
-        </a>
+
+        <div class="gh-collapsible-trigger" id="create-account-link" tabindex="1" role="button" aria-expanded="false">
+          <span class="material-symbols-outlined gh-collapsible-trigger__icon gh-toggle-icon" aria-hidden="true">person_add_alt</span>
+          <span class="gh-collapsible-trigger__label">Add another customer account</span>
+        </div>
       </div>
     </section>
     <div class="gh-action-buttons">

@@ -71,12 +71,12 @@
           </li>
         </ul>
       </div>
-      <div class="gh-additional-info-collapsed" id="additional-info-toggle" tabindex="0" role="button" aria-expanded="false">
-        <span class="material-symbols-outlined gh-add-icon gh-toggle-icon" aria-hidden="true">add_circle_outline</span>
-        <span class="gh-additional-info-label">Additional account information</span>
+      <div class="gh-collapsible-trigger mt-25" id="additional-info-toggle" tabindex="0" role="button" aria-expanded="false" aria-controls="additional-info-fields">
+        <span class="material-symbols-outlined gh-collapsible-trigger__icon gh-toggle-icon" aria-hidden="true">add_circle_outline</span>
+        <span class="gh-collapsible-trigger__label">Additional account information</span>
       </div>
-      <div class="gh-additional-info-fields" id="additional-info-fields" hidden>
-        <div class="gh-additional-info-fields-container">
+      <div class="gh-form-col" id="additional-info-fields" hidden>
+        <div class="gh-form-col">
           <div class="gh-label-group">
             <label for="year-established" class="gh-label">Year Established</label>
             <input type="text" id="year-established" class="gh-input" placeholder="" />
@@ -118,9 +118,153 @@
       <div class="gh-not-found-label">
         <strong>Not finding the account you're looking for?</strong>
       </div>
-      <div class="gh-create-account">
-        <span class="material-symbols-outlined gh-create-icon" aria-hidden="true">person_add_alt</span>
-        <a href="#" id="create-account-link">Create a customer account</a>
+      <div class="gh-collapsible-trigger" id="create-account-link" tabindex="1" role="button" aria-expanded="false">
+        <span class="material-symbols-outlined gh-collapsible-trigger__icon gh-toggle-icon" aria-hidden="true">person_add_alt</span>
+        <span class="gh-collapsible-trigger__label">Create a customer account</span>
+      </div>
+
+      <div class="gh-form-col mt-25" id="create-account-form" hidden>
+        <h2 class="gh-form-title">Customer Account Info</h2>
+        <div class="gh-label-group">
+          <label for="account-name" class="gh-label">* Account Name</label>
+          <input type="text" id="account-name" class="gh-input" />
+        </div>
+        <div class="gh-label-group">
+          <label for="phone" class="gh-label">* Phone</label>
+          <input type="tel" id="phone" class="gh-input" />
+        </div>
+        <div class="gh-label-group">
+          <label class="gh-label" for="primary-account-type-select">* Primary Account Type</label>
+          <div class="gh-custom-select" id="primary-account-type-select" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+            <button class="gh-select-trigger" aria-label="Select primary account type" type="button">
+              <span class="gh-select-value">Select</span>
+              <span class="material-symbols-outlined">expand_more</span>
+            </button>
+            <ul class="gh-select-options" role="listbox" hidden>
+              <li class="gh-select-option" role="option" data-value="type1">
+                <span class="gh-option-bold">Type 1</span>
+              </li>
+              <li class="gh-select-option" role="option" data-value="type2">
+                <span class="gh-option-bold">Type 2</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="gh-label-group">
+          <label class="gh-label" for="secondary-account-type-select">Secondary Account Type</label>
+          <div class="gh-custom-select" id="secondary-account-type-select" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+            <button class="gh-select-trigger" aria-label="Select secondary account type" type="button">
+              <span class="gh-select-value">Select</span>
+              <span class="material-symbols-outlined">expand_more</span>
+            </button>
+            <ul class="gh-select-options" role="listbox" hidden>
+              <li class="gh-select-option" role="option" data-value="typeA">
+                <span class="gh-option-bold">Type A</span>
+              </li>
+              <li class="gh-select-option" role="option" data-value="typeB">
+                <span class="gh-option-bold">Type B</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="gh-form-title">Customer Office Contact Info</h2>
+        <div class="gh-label-group">
+          <label for="street-address" class="gh-label">* Street Address</label>
+          <input type="text" id="street-address" class="gh-input" />
+        </div>
+        <div class="gh-label-group">
+          <label for="street-address-2" class="gh-label">Street Address 2</label>
+          <input type="text" id="street-address-2" class="gh-input" />
+        </div>
+        <div class="gh-label-group">
+          <label for="city" class="gh-label">* City</label>
+          <input type="text" id="city" class="gh-input" />
+        </div>
+        <div class="gh-form-2-col-row">
+          <div class="gh-label-group">
+            <label class="gh-label" for="state-select">* State</label>
+            <div class="gh-custom-select" id="state-select" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+              <button class="gh-select-trigger" aria-label="Select state" type="button">
+                <span class="gh-select-value">Select</span>
+                <span class="material-symbols-outlined">expand_more</span>
+              </button>
+              <ul class="gh-select-options" role="listbox" hidden>
+                <li class="gh-select-option" role="option" data-value="wi">
+                  <span class="gh-option-bold">Wisconsin</span>
+                </li>
+                <li class="gh-select-option" role="option" data-value="mn">
+                  <span class="gh-option-bold">Minnesota</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="gh-label-group">
+            <label for="zip-code" class="gh-label">* Zip Code</label>
+            <input type="text" id="zip-code" class="gh-input" />
+          </div>
+        </div>
+        <div class="gh-label-group">
+          <label class="gh-label" for="country-select">* Country</label>
+          <div class="gh-custom-select" id="country-select" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+            <button class="gh-select-trigger" aria-label="Select country" type="button">
+              <span class="gh-select-value">Select</span>
+              <span class="material-symbols-outlined">expand_more</span>
+            </button>
+            <ul class="gh-select-options" role="listbox" hidden>
+              <li class="gh-select-option" role="option" data-value="usa">
+                <span class="gh-option-bold">United States</span>
+              </li>
+              <li class="gh-select-option" role="option" data-value="ca">
+                <span class="gh-option-bold">Canada</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="gh-label-group">
+          <label for="fax" class="gh-label">Fax</label>
+          <input type="tel" id="fax" class="gh-input" />
+        </div>
+        <div class="gh-label-group">
+          <label for="email" class="gh-label">Email</label>
+          <input type="email" id="email" class="gh-input" />
+        </div>
+
+        <h2 class="gh-form-title">Additional Customer Info</h2>
+        <div class="gh-label-group">
+          <label for="website" class="gh-label">Website</label>
+          <input type="url" id="website" class="gh-input" />
+        </div>
+        <div class="gh-label-group">
+          <label for="year-established-create" class="gh-label">Year Established</label>
+          <input type="text" id="year-established-create" class="gh-input" />
+        </div>
+        <div class="gh-label-group">
+          <label for="additional-office-locations" class="gh-label">Additional Office Location(s)</label>
+          <textarea id="additional-office-locations" class="gh-textarea"></textarea>
+        </div>
+        <div class="gh-label-group">
+          <label for="project-focus-create" class="gh-label">Company or Project Focus
+            <span id="focus-count-create" class="gh-char-count">0/250</span></label>
+          <textarea id="project-focus-create" class="gh-textarea" maxlength="250"></textarea>
+        </div>
+        <div class="gh-label-group">
+          <label class="gh-label" for="product-lines-select">Interested Product Lines and Services</label>
+          <div class="gh-custom-select" id="product-lines-select" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+            <button class="gh-select-trigger" aria-label="Select product lines" type="button">
+              <span class="gh-select-value">Select</span>
+              <span class="material-symbols-outlined">expand_more</span>
+            </button>
+            <ul class="gh-select-options" role="listbox" hidden>
+              <li class="gh-select-option" role="option" data-value="hvac">
+                <span class="gh-option-bold">HVAC</span>
+              </li>
+              <li class="gh-select-option" role="option" data-value="fans">
+                <span class="gh-option-bold">Fans</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div class="gh-action-buttons">
         <button class="gh-btn gh-btn-outline gh-btn-large" id="save-later">

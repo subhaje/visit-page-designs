@@ -67,10 +67,10 @@
       </div>
       <form class="gh-travel-form gh-travel-form-flex" autocomplete="off">
         <!-- Left Column -->
-        <div class="gh-travel-form-col">
+        <div class="gh-form-col">
           <h3 class="gh-travel-form-h3">Attendee Name</h3>
 
-          <div class="gh-travel-form-row">
+          <div class="gh-form-2-col-row">
             <div class="gh-travel-form-row-col">
               <div class="gh-label-group">
                 <label class="gh-label" for="attendee-first-name"><span>Attendee First Name</span></label>
@@ -90,7 +90,7 @@
             <label class="gh-label" for="hotel-confirmation"><span>Confirmation Number (Hotel)</span></label>
             <input type="text" class="gh-input" id="hotel-confirmation" />
           </div>
-          <div class="gh-travel-form-row">
+          <div class="gh-form-2-col-row">
             <div class="gh-travel-form-row-col">
               <div class="gh-label-group">
                 <label class="gh-label" for="hotel-checkin"><span>Hotel Check In (mm/dd/yy)</span></label>
@@ -119,23 +119,23 @@
               </label>
             </div>
           </div>
-          <div class="gh-travel-form-row">
+          <div class="gh-form-2-col-row">
             <div class="gh-travel-form-row-col">
               <div class="gh-label-group">
-                <label class="gh-label" for="driving-arrival-date-input"><span>Driving Arrival Date</span></label>
-                <input type="text" class="gh-input" id="driving-arrival-date-input" />
+                <label class="gh-label" id="driving-arrival-date-label" for="driving-arrival-date-input"><span>Driving Arrival Date</span></label>
+                <input type="text" class="gh-input" id="driving-arrival-date-input" disabled />
               </div>
             </div>
             <div class="gh-travel-form-row-col">
               <div class="gh-label-group">
-                <label class="gh-label" for="driving-arrival-time-input"><span>Driving Arrival Time</span></label>
-                <input type="text" class="gh-input" id="driving-arrival-time-input" />
+                <label class="gh-label" id="driving-arrival-time-label" for="driving-arrival-time-input"><span>Driving Arrival Time</span></label>
+                <input type="text" class="gh-input" id="driving-arrival-time-input" disabled />
               </div>
             </div>
           </div>
         </div>
         <!-- Right Column -->
-        <div class="gh-travel-form-col">
+        <div class="gh-form-col">
           <h3 class="gh-travel-form-h3">Flight</h3>
           <div class="gh-label-group">
             <label class="gh-label" for="arrival-airport"><span>Arrival Airport</span></label>
@@ -145,7 +145,7 @@
             <label class="gh-label" for="arrival-airline"><span>Arrival Airline</span></label>
             <input type="text" class="gh-input" id="arrival-airline" />
           </div>
-          <div class="gh-travel-form-row">
+          <div class="gh-form-2-col-row">
             <div class="gh-travel-form-row-col">
               <div class="gh-label-group">
                 <label class="gh-label" for="arrival-flight"><span>Arrival Flight #</span></label>
@@ -167,7 +167,7 @@
             <label class="gh-label" for="departure-airline"><span>Departure Airline</span></label>
             <input type="text" class="gh-input" id="departure-airline" />
           </div>
-          <div class="gh-travel-form-row">
+          <div class="gh-form-2-col-row">
             <div class="gh-travel-form-row-col">
               <div class="gh-label-group">
                 <label class="gh-label" for="departure-flight"><span>Departure Flight #</span></label>
@@ -257,11 +257,15 @@
     document.getElementById('driving-yes').addEventListener('change', function () {
       if (this.checked) {
         setDrivingFields(true);
+        this.setAttribute('aria-checked', 'true');
+        document.getElementById('driving-no').setAttribute('aria-checked', 'false');
       }
     });
     document.getElementById('driving-no').addEventListener('change', function () {
       if (this.checked) {
         setDrivingFields(false);
+        this.setAttribute('aria-checked', 'true');
+        document.getElementById('driving-yes').setAttribute('aria-checked', 'false');
       }
     });
   </script>

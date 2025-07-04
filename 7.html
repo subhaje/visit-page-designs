@@ -144,7 +144,7 @@
             div.innerHTML = `
                 <div class=\"gh-selected-attendee-name\">${optionLabels[value]
               }</div>
-                <a href=\"#\" class=\"gh-add-details-link${expandedIndex === idx ? ' expanded' : ''
+                <a href=\"#\" class=\"gh-collapsible-trigger${expandedIndex === idx ? ' expanded' : ''
               }\" data-index=\"${idx}\">
                   <span class=\"material-symbols-outlined text-14 flex-center\" >${expandedIndex === idx ? 'remove' : 'add'
               }</span>
@@ -203,7 +203,7 @@
         });
         // Add click listeners for add-details links
         selectedList
-          .querySelectorAll('.gh-add-details-link')
+          .querySelectorAll('.gh-collapsible-trigger')
           .forEach((link) => {
             link.onclick = function (e) {
               e.preventDefault();

@@ -1,6 +1,9 @@
 // --- Navigation Logic ---
 function initNavigation() {
-  document.getElementById('year').textContent = new Date().getFullYear();
+  const yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
   const startReservationBtn = document.getElementById('start-reservation');
   if (startReservationBtn) {
     startReservationBtn.addEventListener('click', function () {
@@ -66,6 +69,7 @@ function initNavigation() {
       window.location.href = '7.html';
     });
   }
+  /*
   const createAccountLink = document.getElementById('create-account-link');
   if (createAccountLink) {
     createAccountLink.addEventListener('click', function (e) {
@@ -73,6 +77,7 @@ function initNavigation() {
       window.location.href = '5.html';
     });
   }
+  */
   // Back link for 5.html
   if (window.location.pathname.endsWith('5.html')) {
     const backLink = document.getElementById('back-link');
@@ -105,6 +110,12 @@ function initCustomSelects() {
       const trigger = customSelect.querySelector('.gh-select-trigger');
       const options = customSelect.querySelector('.gh-select-options');
       const valueSpan = customSelect.querySelector('.gh-select-value');
+
+      if (!trigger || !options || !valueSpan) {
+        console.warn('Custom select is missing required elements:', customSelect);
+        return;
+      }
+
       const isMulti = customSelect.hasAttribute('data-multiselect');
       let isOpen = false;
       let selectedValues = [];
@@ -151,6 +162,9 @@ function initCustomSelects() {
           if (!isRepDropdown) return;
           const allCheckboxes = options.querySelectorAll('.gh-checkbox');
           const noneCheckbox = options.querySelector('.gh-rep-none');
+          if (!noneCheckbox) {
+            return;
+          }
           const otherCheckboxes = Array.from(allCheckboxes).filter(
             (cb) => !cb.classList.contains('gh-rep-none')
           );
@@ -174,6 +188,9 @@ function initCustomSelects() {
         }
         function renderSelectedRepAttendees(options) {
           const selectedList = document.querySelector('.gh-selected-list');
+          if (!selectedList) {
+            return;
+          }
           const noneCheckbox = options.querySelector('.gh-rep-none');
           const checked = options.querySelectorAll('.gh-checkbox:checked');
           selectedList.innerHTML = '';
@@ -217,11 +234,11 @@ function initCustomSelects() {
                     const isExpanded = expandedIndex === i;
                     return `<div class=\"gh-selected-attendee\">
                   <div class=\"gh-selected-attendee-name\">${name}</div>
-                  <button class=\"gh-add-details-link gh-additional-info-collapsed\" type=\"button\" tabindex=\"0\" aria-expanded=\"${isExpanded}\" aria-controls=\"attendee-details-form-${i}\">
-                    <span class=\"material-symbols-outlined gh-add-icon gh-toggle-icon text-14\" aria-hidden=\"true\">${
-                      isExpanded ? 'remove' : 'add'
+                  <button class=\"gh-collapsible-trigger-id\" type=\"button\" tabindex=\"0\" aria-expanded=\"${isExpanded}\" aria-controls=\"attendee-details-form-${i}\">
+                    <span class=\"material-symbols-outlined gh-collapsible-trigger__icon gh-toggle-icon\" aria-hidden=\"true\">${
+                      isExpanded ? 'remove_circle_outline' : 'add_circle_outline'
                     }</span>
-                   <span class=\"gh-additional-info-label\">Add Details (Optional)</span>
+                   <span class=\"gh-collapsible-trigger__label\">Add Details (Optional)</span>
                   </button>
                   ${
                     isExpanded
@@ -266,7 +283,7 @@ function initCustomSelects() {
             }
           }
           // Add event listeners for details toggles
-          Array.from(document.querySelectorAll('.gh-add-details-link')).forEach(
+          Array.from(document.querySelectorAll('.gh-collapsible-trigger-id')).forEach(
             (btn, i) => {
               btn.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -625,6 +642,14 @@ function initCharCount() {
       focusCount.textContent = `${projectFocus.value.length}/250`;
     });
   }
+
+  const projectFocusCreate = document.getElementById('project-focus-create');
+  const focusCountCreate = document.getElementById('focus-count-create');
+  if (projectFocusCreate && focusCountCreate) {
+    projectFocusCreate.addEventListener('input', function () {
+      focusCountCreate.textContent = `${projectFocusCreate.value.length}/250`;
+    });
+  }
 }
 
 function initCharCountLimit() {
@@ -656,6 +681,8 @@ function init() {
   initDrivingFieldsToggle();
   initCharCount();
   initCharCountLimit();
+  initAccountToggles();
+  initCollapsibleToggles();
   ['edit-company-modal', 'edit-attendee-modal', 'edit-rep-modal'].forEach(
     function (id) {
       var dlg = document.getElementById(id);
@@ -664,6 +691,42 @@ function init() {
       }
     }
   );
+}
+
+function initCollapsibleToggles() {
+  document.querySelectorAll('.gh-collapsible-trigger').forEach(function(toggle) {
+    var contentId = toggle.getAttribute('aria-controls');
+    var content = document.getElementById(contentId);
+
+    if (content) {
+      toggle.addEventListener('click', function() {
+        var isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', !isExpanded);
+        content.hidden = !content.hidden;
+
+        var icon = toggle.querySelector('.gh-toggle-icon');
+        if (icon) {
+          if (icon.textContent.includes('add')) {
+            icon.textContent = icon.textContent.replace('add', 'remove');
+          } else {
+            icon.textContent = icon.textContent.replace('remove', 'add');
+          }
+        }
+      });
+    }
+  });
+}
+
+function initAccountToggles() {
+  const createAccountLink = document.getElementById('create-account-link');
+  const createAccountForm = document.getElementById('create-account-form');
+
+  if (createAccountLink && createAccountForm) {
+    createAccountLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      createAccountForm.hidden = !createAccountForm.hidden;
+    });
+  }
 }
 
 init();
