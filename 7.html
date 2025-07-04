@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Rep Attendees | Greenheck Customer Visit Planner</title>
+  <meta name="description" content="Add rep attendees for your Greenheck customer visit." />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="styles/base.css" />
+</head>
+
+<body>
+  <header class="gh-header">
+    <div class="gh-header-container">
+      <div class="gh-header-left">
+        <a href="/" target="_blank">
+          <img width="285" height="70" src="Greenheck_Logo_Horiz_Blue@2x.png" alt="Greenheck Logo" class="gh-logo" />
+        </a>
+      </div>
+      <div class="gh-header-right">
+        <div class="gh-user-info">
+          <span class="material-symbols-outlined" aria-hidden="true">person_outline</span>
+          <span class="gh-user-info-text">Welcome, Gary</span>
+        </div>
+        <span class="gh-header-title">Customer Visit Planner</span>
+      </div>
+    </div>
+  </header>
+  <main class="gh-main gh-main-form">
+    <h1 class="gh-page-title">Rep Attendees</h1>
+    <nav class="gh-stepper" aria-label="Reservation steps">
+      <ul>
+        <li class="gh-step gh-step-completed">Customer account</li>
+        <li class="gh-step gh-step-completed">Attendees</li>
+        <li class="gh-step gh-step-current">Rep Attendees</li>
+        <li class="gh-step">Travel Info</li>
+        <li class="gh-step">Summary</li>
+      </ul>
+    </nav>
+    <section class="gh-form-section">
+      <h2 class="gh-form-title">Rep Attendee(s)</h2>
+      <label class="gh-label" for="rep-attendee-names-select">Add Rep Attendee(s)</label>
+      <div class="gh-custom-select" id="rep-attendee-names-select" tabindex="0" aria-haspopup="listbox" aria-expanded="false" data-multiselect="true">
+        <button class="gh-select-trigger" aria-label="Select attendee name(s)" type="button">
+          <span class="gh-select-value">Select attendee name(s)</span>
+          <span class="material-symbols-outlined">expand_more</span>
+        </button>
+        <ul class="gh-select-options" role="listbox" hidden>
+          <li class="gh-select-option" role="option" data-value="none">
+            <label class="gh-checkbox-label">
+              <input type="checkbox" class="gh-checkbox gh-rep-none" tabindex="-1" />
+              <span class="gh-option-bold">NONE - No rep(s) attending</span>
+            </label>
+          </li>
+          <li class="gh-select-option" role="option" data-value="gary">
+            <label class="gh-checkbox-label">
+              <input type="checkbox" class="gh-checkbox" tabindex="-1" />
+              <span class="gh-option-bold">Fischbach, Gary</span>
+            </label>
+          </li>
+          <li class="gh-select-option" role="option" data-value="terry">
+            <label class="gh-checkbox-label">
+              <input type="checkbox" class="gh-checkbox" tabindex="-1" />
+              <span class="gh-option-bold">Johnson, Terry</span>
+            </label>
+          </li>
+          <li class="gh-select-option" role="option" data-value="dyson">
+            <label class="gh-checkbox-label">
+              <input type="checkbox" class="gh-checkbox" tabindex="-1" />
+              <span class="gh-option-bold">James, Dyson</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="gh-selected-attendees hidden">
+        <div class="gh-selected-label">Selected Rep Attendee(s)</div>
+        <div class="gh-selected-list" id="selected-rep-list">
+          <!-- Selected attendees will be rendered here by JS -->
+        </div>
+      </div>
+      <div class="gh-action-buttons">
+        <button class="gh-btn gh-btn-outline gh-btn-large" id="save-later">
+          Save &amp; Complete Later
+        </button>
+        <button class="gh-btn gh-btn-table gh-btn-large" id="save-add-travel">
+          Save &amp; Add Travel Info
+        </button>
+      </div>
+    </section>
+
+    <div class="gh-back-link">
+      <a href="#" id="back-link"><span class="material-symbols-outlined">keyboard_arrow_left</span><span class="gh-back-link-text">Back</span></a>
+    </div>
+  </main>
+  <footer class="gh-footer">
+    <div class="gh-footer-logo">
+      <img src="Greenheck_Logo_Horiz_Blue@2x.png" alt="Greenheck Logo" class="gh-footer-logo-img" />
+    </div>
+    <div class="gh-footer-address">
+      &copy; <span id="year"></span> Greenheck Fan Corporation. All rights
+      reserved. P.O. BOX 410 | Schofield, WI 54476 |
+      <a href="tel:+17153596171">(715) 359-6171</a>
+    </div>
+  </footer>
+  <script src="scripts/main.js"></script>
+  <script>
+    // Rep Attendee selection dynamic rendering with details form
+    document.addEventListener('DOMContentLoaded', function () {
+      const selectBox = document.getElementById('rep-attendee-names-select');
+      const options = selectBox.querySelectorAll('.gh-checkbox');
+      const selectedList = document.getElementById('selected-rep-list');
+      const optionLabels = {
+        none: 'NONE - No rep(s) attending',
+        gary: 'Fischbach, Gary',
+        terry: 'Johnson, Terry',
+        dyson: 'James, Dyson',
+      };
+      let expandedIndex = null;
+      function renderSelected() {
+        const checked = Array.from(options).filter((cb) => cb.checked);
+        selectedList.innerHTML = '';
+        const selectedAttendeesSection = document.querySelector(
+          '.gh-selected-attendees'
+        );
+        if (checked.length === 0) {
+          selectedAttendeesSection.classList.add('hidden');
+          return;
+        }
+        selectedAttendeesSection.classList.remove('hidden');
+        checked.forEach((cb, idx) => {
+          const value = cb
+            .closest('.gh-select-option')
+            .getAttribute('data-value');
+          if (value === 'none') {
+            const div = document.createElement('div');
+            div.textContent = optionLabels[value];
+            selectedList.appendChild(div);
+          } else {
+            const div = document.createElement('div');
+            div.classList.add('gh-selected-attendee');
+            div.innerHTML = `
+                <div class=\"gh-selected-attendee-name\">${optionLabels[value]
+              }</div>
+                <a href=\"#\" class=\"gh-add-details-link${expandedIndex === idx ? ' expanded' : ''
+              }\" data-index=\"${idx}\">
+                  <span class=\"material-symbols-outlined text-14 flex-center\" >${expandedIndex === idx ? 'remove' : 'add'
+              }</span>
+                  
+<span class=\"gh-additional-info-label\">
+                  Add Details (Optional)</span>
+                </a>
+                ${expandedIndex === idx
+                ? `
+                <form class='gh-details-form' autocomplete='off'>
+                  <div class='gh-checkbox-row'>
+                    <label class='gh-checkbox-label'><input name='main-contact' type='checkbox' class='gh-main-contact' /> <span class='gh-checkbox-label-text'>Designate as main visit contact</span></label>
+                  </div>
+                  <div class="gh-label-group">
+                    <label class='gh-label'>Mobile Phone Number</label>
+                    <input type='text' class='gh-input ' />
+                  </div>
+                  <div class="gh-label-group">
+                    <label class='gh-label'>* Name on Badge (How Attendee name will appear on badge)</label>
+                    <input type='text' class='gh-input ' />
+                  </div>
+                  <div class="gh-label-group">
+                    <label class='gh-label'>Dietary Restrictions/Special Requirements <span class='gh-char-count' id='diet-count-${idx}'>0/1200</span></label>
+                    <textarea class='gh-textarea gh-textarea' rows='2' maxlength='1200' data-count-id='diet-count-${idx}'></textarea>
+                  </div>
+                  <div class="gh-label-group">
+                    <label class='gh-label'>Comments <span class='gh-char-count' id='comments-count-${idx}'>0/1200</span></label>
+                    <textarea class='gh-textarea gh-textarea' rows='2' maxlength='1200' data-count-id='comments-count-${idx}' placeholder='e.g. I\'m interested in...'></textarea>
+                  </div>
+                  <div class='gh-flex-row'>
+                    <div class='gh-label-group w-auto' role='radiogroup' aria-labelledby='prayer-time-label-${idx}'>
+                      <label class='gh-label' id='prayer-time-label-${idx}' for='prayer-time-yes-${idx}'><span>Prayer Time?</span></label>
+                      <div class="gh-radio-label-yn-container">
+                        <label class='gh-radio-label' for='prayer-time-yes-${idx}'>
+                          <input type='radio' id='prayer-time-yes-${idx}' name='prayer-time-${idx}' value='yes' class='gh-radio' aria-checked='false' aria-labelledby='prayer-time-label-${idx} prayer-time-yes-label-${idx}' />
+                          <span class='gh-radio-label-text-yn' id='prayer-time-yes-label-${idx}'>Yes</span>
+                        </label>
+                        <label class='gh-radio-label' for='prayer-time-no-${idx}'>
+                          <input type='radio' id='prayer-time-no-${idx}' name='prayer-time-${idx}' value='no' class='gh-radio' aria-checked='false' aria-labelledby='prayer-time-label-${idx} prayer-time-no-label-${idx}' />
+                          <span class='gh-radio-label-text-yn' id='prayer-time-no-label-${idx}'>No</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="gh-label-group flex-1">
+                      <label class='gh-label' for='prayer-time-input-${idx}'><span>Enter prayer time</span></label>
+                      <input type='text' id='prayer-time-input-${idx}' class='gh-input' aria-label='Enter prayer time' />
+                    </div>
+                  </div>
+                </form>
+                `
+                : ''
+              }
+              `;
+            selectedList.appendChild(div);
+          }
+        });
+        // Add click listeners for add-details links
+        selectedList
+          .querySelectorAll('.gh-add-details-link')
+          .forEach((link) => {
+            link.onclick = function (e) {
+              e.preventDefault();
+              const idx = parseInt(this.getAttribute('data-index'));
+              expandedIndex = expandedIndex === idx ? null : idx;
+              renderSelected();
+              if (expandedIndex !== null) {
+                addDetailsCharCountListeners(expandedIndex);
+              }
+            };
+          });
+      }
+      function addDetailsCharCountListeners(idx) {
+        // Add char count for textareas
+        const form = selectedList.querySelector('.gh-details-form');
+        if (!form) return;
+        form.querySelectorAll('.gh-textarea').forEach((textarea) => {
+          const countId = textarea.getAttribute('data-count-id');
+          const countSpan = document.getElementById(countId);
+          textarea.addEventListener('input', function () {
+            countSpan.textContent = `${this.value.length}/1200`;
+          });
+          // Initialize count
+          countSpan.textContent = `${textarea.value.length}/1200`;
+        });
+      }
+      options.forEach((cb) => {
+        cb.addEventListener('change', function () {
+          expandedIndex = null;
+          renderSelected();
+        });
+      });
+      renderSelected();
+    });
+  </script>
+</body>
+
+</html>

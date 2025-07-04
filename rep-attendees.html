@@ -1,0 +1,42 @@
+<header class="gh-header">
+  <div class="gh-header-container">
+    <div class="gh-header-left">
+      <a href="/" target="_blank">
+        <img width="285" height="70" src="Greenheck_Logo_Horiz_Blue@2x.png" alt="Greenheck Logo" class="gh-logo" />
+      </a>
+    </div>
+    <div class="gh-header-right">
+      <div class="gh-user-info">
+        <span class="material-symbols-outlined" aria-hidden="true">person_outline</span>
+        <span class="gh-user-info-text">Welcome, Gary</span>
+      </div>
+      <span class="gh-header-title">Customer Visit Planner</span>
+    </div>
+  </div>
+</header>
+
+<div class="gh-step-section">
+  <label for="rep-attendee-names-select" class="gh-label">Add Rep Attendee(s)</label>
+  <div id="rep-attendee-names-select" class="gh-custom-select" tabindex="0">
+    <span class="gh-select-value">Select attendee name(s)</span>
+    <div class="gh-select-options hidden">
+      <div class="gh-select-option" data-value="none">
+        <input type="checkbox" class="gh-checkbox gh-rep-none" id="rep-none" />
+        <label for="rep-none" class="gh-option-bold">NONE - No rep(s) attending</label>
+      </div>
+      <!-- Example rep options, replace with your dynamic list -->
+      <div class="gh-select-option" data-value="fischbach-gary">
+        <input type="checkbox" class="gh-checkbox" id="rep-fischbach-gary" />
+        <label for="rep-fischbach-gary" class="gh-option-bold">Fischbach, Gary</label>
+      </div>
+      <div class="gh-select-option" data-value="smith-jane">
+        <input type="checkbox" class="gh-checkbox" id="rep-smith-jane" />
+        <label for="rep-smith-jane" class="gh-option-bold">Smith, Jane</label>
+      </div>
+    </div>
+  </div>
+  <div class="gh-selected-attendees mt-4">
+    <div class="gh-selected-label">Selected Rep Attendee(s)</div>
+    <div class="gh-selected-list"></div>
+  </div>
+</div>

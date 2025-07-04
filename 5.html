@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Customer Account | Greenheck Customer Visit Planner</title>
+  <meta name="description" content="Select or create a customer account for your visit." />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="styles/base.css" />
+</head>
+
+<body>
+  <header class="gh-header">
+    <div class="gh-header-container">
+      <div class="gh-header-left">
+        <a href="/" target="_blank">
+          <img width="285" height="70" src="Greenheck_Logo_Horiz_Blue@2x.png" alt="Greenheck Logo" class="gh-logo" />
+        </a>
+      </div>
+      <div class="gh-header-right">
+        <div class="gh-user-info">
+          <span class="material-symbols-outlined" aria-hidden="true">person_outline</span>
+          <span class="gh-user-info-text">Welcome, Gary</span>
+        </div>
+        <span class="gh-header-title">Customer Visit Planner</span>
+      </div>
+    </div>
+  </header>
+  <main class="gh-main gh-main-form">
+    <h1 class="gh-page-title">Customer Account</h1>
+    <nav class="gh-stepper" aria-label="Reservation steps">
+      <ul>
+        <li class="gh-step gh-step-current">Customer account</li>
+        <li class="gh-step">Attendees</li>
+        <li class="gh-step">Rep Attendees</li>
+        <li class="gh-step">Travel Info</li>
+        <li class="gh-step">Summary</li>
+      </ul>
+    </nav>
+    <section class="gh-form-section">
+      <h2 class="gh-form-title">Select Customer Account</h2>
+      <label for="customer-account-select" class="gh-label">Select customer account</label>
+      <div class="gh-custom-select" id="customer-account-select" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+        <button class="gh-select-trigger" aria-label="Select customer account" type="button">
+          <span class="gh-select-value">Select</span>
+          <span class="material-symbols-outlined">expand_more</span>
+        </button>
+        <ul class="gh-select-options" role="listbox" hidden>
+          <li class="gh-select-option" role="option" data-value="mce">
+            <span class="gh-option-bold">Michaud Cooley Erickson</span>
+            <span class="gh-option-normal"> - Minneapolis, MN</span>
+          </li>
+          <li class="gh-select-option" role="option" data-value="tms">
+            <span class="gh-option-bold">TMS Johnson</span>
+            <span class="gh-option-normal"> - Minneapolis, MN</span>
+          </li>
+          <li class="gh-select-option" role="option" data-value="northland">
+            <span class="gh-option-bold">Northland Mechanical</span>
+            <span class="gh-option-normal"> - Minneapolis, MN</span>
+          </li>
+          <li class="gh-select-option" role="option" data-value="absolute">
+            <span class="gh-option-bold">Absolute Mechanical</span>
+            <span class="gh-option-normal"> Minneapolis, MN</span>
+          </li>
+          <li class="gh-select-option" role="option" data-value="steiner">
+            <span class="gh-option-bold">Steiner Plumbing Electric &amp; Heating</span>
+            <span class="gh-option-normal"> - Minneapolis, MN</span>
+          </li>
+        </ul>
+      </div>
+      <div class="gh-additional-info-collapsed" id="additional-info-toggle" tabindex="0" role="button" aria-expanded="false">
+        <span class="material-symbols-outlined gh-add-icon gh-toggle-icon" aria-hidden="true">add_circle_outline</span>
+        <span class="gh-additional-info-label">Additional account information</span>
+      </div>
+      <div class="gh-additional-info-fields" id="additional-info-fields" hidden>
+        <div class="gh-additional-info-fields-container">
+          <div class="gh-label-group">
+            <label for="year-established" class="gh-label">Year Established</label>
+            <input type="text" id="year-established" class="gh-input" placeholder="" />
+          </div>
+          <div class="gh-label-group">
+            <label for="additional-locations" class="gh-label">Additional Location(s)</label>
+            <textarea id="additional-locations" class="gh-textarea" placeholder="City and State..."></textarea>
+          </div>
+          <div class="gh-label-group">
+            <label for="project-focus" class="gh-label">Company or project focus
+              <span id="focus-count" class="gh-char-count">0/250</span></label>
+            <textarea id="project-focus" class="gh-textarea" maxlength="250" placeholder="Type here..."></textarea>
+          </div>
+          <div class="gh-label-group">
+            <label class="gh-label" for="areas-interest-select">Select areas of interest</label>
+            <div class="gh-custom-select" id="areas-interest-select" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+              <button class="gh-select-trigger" aria-label="Select areas of interest" type="button">
+                <span class="gh-select-value">Select</span>
+                <span class="material-symbols-outlined">expand_more</span>
+              </button>
+              <ul class="gh-select-options" role="listbox" hidden>
+                <li class="gh-select-option" role="option" data-value="hvac">
+                  <span class="gh-option-bold">HVAC</span>
+                </li>
+                <li class="gh-select-option" role="option" data-value="plumbing">
+                  <span class="gh-option-bold">Plumbing</span>
+                </li>
+                <li class="gh-select-option" role="option" data-value="electrical">
+                  <span class="gh-option-bold">Electrical</span>
+                </li>
+                <li class="gh-select-option" role="option" data-value="controls">
+                  <span class="gh-option-bold">Controls</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="gh-not-found-label">
+        <strong>Not finding the account you're looking for?</strong>
+      </div>
+      <div class="gh-create-account">
+        <span class="material-symbols-outlined gh-create-icon" aria-hidden="true">person_add_alt</span>
+        <a href="#" id="create-account-link">Create a customer account</a>
+      </div>
+      <div class="gh-action-buttons">
+        <button class="gh-btn gh-btn-outline gh-btn-large" id="save-later">
+          Save &amp; Complete Later
+        </button>
+        <button class="gh-btn gh-btn-table gh-btn-large" id="save-add-attendee">
+          Save &amp; Add Attendee
+        </button>
+      </div>
+    </section>
+
+    <div class="gh-back-link">
+      <a href="#" id="back-link"><span class="material-symbols-outlined">keyboard_arrow_left</span><span class="gh-back-link-text">Back</span></a>
+    </div>
+  </main>
+  <footer class="gh-footer">
+    <div class="gh-footer-logo">
+      <img src="Greenheck_Logo_Horiz_Blue@2x.png" alt="Greenheck Logo" class="gh-footer-logo-img" />
+    </div>
+    <div class="gh-footer-address">
+      &copy; <span id="year"></span> Greenheck Fan Corporation. All rights
+      reserved. P.O. BOX 410 | Schofield, WI 54476 |
+      <a href="tel:+17153596171">(715) 359-6171</a>
+    </div>
+  </footer>
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>

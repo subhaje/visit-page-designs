@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Greenheck Customer Visit Planner</title>
+  <meta name="description" content="Plan and reserve visits to Greenheck. Manage attendees, travel, and more." />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="styles/base.css" />
+</head>
+
+<body>
+  <header class="gh-header">
+    <div class="gh-header-container">
+      <div class="gh-header-left">
+        <a href="/" target="_blank">
+          <img width="285" height="70" src="Greenheck_Logo_Horiz_Blue@2x.png" alt="Greenheck Logo" class="gh-logo" />
+        </a>
+      </div>
+      <div class="gh-header-right">
+        <div class="gh-user-info">
+          <span class="material-symbols-outlined" aria-hidden="true">person_outline</span>
+          <span class="gh-user-info-text">Welcome, Gary</span>
+        </div>
+        <span class="gh-header-title">Customer Visit Planner</span>
+      </div>
+    </div>
+  </header>
+  <main class="gh-main" aria-labelledby="main-title">
+    <h1 class="gh-page-title">
+      Start a new reservation or continue an existing one
+    </h1>
+    <p class="gh-title-desc">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus
+      urna nibh, quis sollicitudin mi suscipit.
+    </p>
+    <section class="gh-cards">
+      <div class="gh-card gh-card-secondary">
+        <h3>Start a new reservation</h3>
+        <p>Reserve a new visit and enter attendee information.</p>
+        <button class="gh-btn gh-btn-outline absolute b-30" id="start-reservation">
+          Start a reservation
+        </button>
+      </div>
+      <div class="gh-card gh-card-primary">
+        <h3>Continue with an existing reservation</h3>
+        <p>Complete entering visitor information and continue planning</p>
+        <button class="gh-btn gh-btn-outline absolute b-30" id="continue-reservation">
+          Continue reservation
+        </button>
+      </div>
+    </section>
+    <div class="gh-cancel-info">
+      Need to cancel a visit? Please contact
+      <a href="mailto:customervisit@greenheck.com">customervisit@greenheck.com</a>
+    </div>
+  </main>
+  <footer class="gh-footer">
+    <div class="gh-footer-logo">
+      <img src="Greenheck_Logo_Horiz_Blue@2x.png" alt="Greenheck Logo" class="gh-footer-logo-img" />
+    </div>
+    <div class="gh-footer-address">
+      &copy; <span id="year"></span> Greenheck Fan Corporation. All rights
+      reserved. P.O. BOX 410 | Schofield, WI 54476 |
+      <a href="tel:+17153596171">(715) 359-6171</a>
+    </div>
+  </footer>
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>
