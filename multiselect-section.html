@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Multiselect Section | Greenheck Customer Visit Planner</title>
+    <meta name="description" content="Multiselect section demonstration for Greenheck Customer Visit Planner." />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        :root {
+            --gh-primary: #075697;
+            --gh-secondary: #00a8e4;
+            --gh-bg: #fff;
+            --gh-text: #444;
+            --gh-accent: rgba(13, 158, 0, 1);
+            --gh-border: #e5e7eb;
+            --gh-radius: 0.75rem;
+            --gh-spacing: 2rem;
+            --gh-font: "Roboto", Arial, sans-serif;
+            --gh-font-bold: "Roboto", Arial, sans-serif;
+        }
+
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'HelveticaNeue-Roman', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+
+
+        /* Main content styles */
+        .gh-main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+
+
+        /* Form section styles */
+        .gh-form-section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .gh-focus-description {
+            margin: 7px 0 20px 0;
+            color: #333;
+            font-family: 'HelveticaNeue-Roman', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .gh-form-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .gh-section-with-icon {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .gh-check-icon {
+            color: var(--gh-accent);
+        }
+
+        /* Multiselect grid styles */
+        .gh-visit-focus-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+            max-width: 100%;
+            border: 1px solid #d1d5db;
+            padding: 12px;
+            border-radius: 6px;
+        }
+
+        .gh-focus-item {
+            padding: 8px 12px;
+            border-radius: 4px;
+            background: #f9fafb;
+            color: #374151;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: "HelveticaNeue-Medium", sans-serif;
+            font-size: 15px;
+            text-align: center;
+            user-select: none;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.2;
+            position: relative;
+            transform: scale(1);
+            transition: all 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+            /* Prevent layout shift by reserving space for focus outline */
+            border: 3px solid transparent;
+            outline: none;
+        }
+
+        .gh-focus-item:hover {
+            background: #f3f4f6;
+        }
+
+        .gh-focus-item.selected {
+            background: var(--gh-secondary);
+            color: white;
+        }
+
+        .gh-focus-item.gh-keyboard-focus {
+            border: 3px solid var(--gh-primary);
+            box-shadow: 0 0 0 1px rgba(7, 86, 151, 0.3);
+        }
+
+        .gh-focus-item.gh-keyboard-focus:not(.selected) {
+            background: #e3f2fd;
+            border: 3px solid var(--gh-primary);
+        }
+
+        .gh-focus-item:focus {
+            outline: 3px solid var(--gh-primary);
+            outline-offset: 2px;
+        }
+
+        /* Action buttons */
+        .gh-focus-actions {
+            display: flex;
+            gap: 27px;
+            margin-bottom: 20px;
+            margin-top: 8px;
+        }
+
+        .gh-focus-actions a {
+            color: var(--gh-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .gh-focus-actions a:hover {
+            text-decoration: underline;
+        }
+
+        .gh-save-btn {
+            background: var(--gh-primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-family: var(--gh-font);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .gh-save-btn:hover {
+            background: #054a7a;
+        }
+
+        .gh-save-btn:active {
+            transform: translateY(1px);
+        }
+
+
+
+        /* Responsive grid adjustments */
+        @media (max-width: 1200px) {
+            .gh-visit-focus-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gh-visit-focus-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gh-visit-focus-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <main class="gh-main">
+
+
+        <section class="gh-form-section">
+            <div class="gh-section-header">
+                <h2 class="gh-form-title">
+                    <span class="gh-section-with-icon">
+                        Visit Focus
+                        <span class="gh-check-icon material-symbols-outlined">check_circle</span>
+                    </span>
+                </h2>
+            </div>
+
+            <p class="gh-focus-description">
+                Select Areas of Interest
+            </p>
+
+            <div class="gh-focus-actions">
+                <a href="#" id="save-focus">Save</a>
+                <a href="#" id="select-all-focus">Select All</a>
+                <a href="#" id="clear-all-focus">Clear All</a>
+            </div>
+
+            <div class="gh-visit-focus-grid" id="visit-focus-grid" role="grid" aria-label="Visit Focus Areas">
+                <!-- Dynamic focus items will be generated here -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Configuration object - easily modifiable
+        const CONFIG = {
+            selectors: {
+                grid: '#visit-focus-grid',
+                saveBtn: '#save-focus',
+                selectAllBtn: '#select-all-focus',
+                clearAllBtn: '#clear-all-focus'
+            },
+            keyboard: {
+                keys: {
+                    tab: 'Tab',
+                    space: ' ',
+                    enter: 'Enter',
+                    escape: 'Escape'
+                },
+                animation: {
+                    scale: 0.95,
+                    duration: 150
+                }
+            },
+            aria: {
+                roles: {
+                    grid: 'grid',
+                    gridcell: 'gridcell'
+                },
+                labels: {
+                    grid: 'Visit Focus Areas'
+                }
+            },
+            data: {
+                defaultItems: [
+                    { Text: "Power Roof Ventilators", Value: "1", Selected: "false" },
+                    { Text: "Commercial Dampers", Value: "2", Selected: "false" },
+                    { Text: "Ceiling / Bathroom Exhaust", Value: "3", Selected: "false" },
+                    { Text: "Industrial Dampers", Value: "4", Selected: "false" },
+                    { Text: "Axial /Inline / HVLS", Value: "5", Selected: "false" },
+                    { Text: "Louvers", Value: "6", Selected: "false" },
+                    { Text: "Centrifugal and Vane Axial", Value: "7", Selected: "false" },
+                    { Text: "Grills, Registers, Diffusers", Value: "8", Selected: "false" },
+                    { Text: "Laboratory / Fume Exhaust", Value: "9", Selected: "true" },
+                    { Text: "Air Terminal Units", Value: "10", Selected: "false" },
+                    { Text: "Motor Technology", Value: "11", Selected: "false" },
+                    { Text: "System Effects Demonstration", Value: "12", Selected: "false" },
+                    { Text: "Make-up Air", Value: "13", Selected: "false" },
+                    { Text: "Kitchen Ventilation", Value: "14", Selected: "true" },
+                    { Text: "Energy Recovery", Value: "15", Selected: "false" },
+                    { Text: "Kitchen Ventilation Systems", Value: "16", Selected: "false" },
+                    { Text: "Dedicated Outdoor Air Systems", Value: "17", Selected: "false" },
+                    { Text: "Ecaps", Value: "18", Selected: "false" },
+                    { Text: "Revit", Value: "19", Selected: "false" }
+                ]
+            }
+        };
+
+        // Error handling utility
+        class ErrorHandler {
+            static handleError(error, context) {
+                console.error(`Error in ${context}:`, error);
+                // Could integrate with error reporting service
+            }
+
+            static validateElement(element, selector) {
+                if (!element) {
+                    throw new Error(`Element not found: ${selector}`);
+                }
+                return element;
+            }
+        }
+
+        // Data management class - Single Responsibility
+        class FocusDataManager {
+            constructor(initialData = []) {
+                this._data = [...initialData];
+                this._observers = [];
+            }
+
+            get data() {
+                return [...this._data];
+            }
+
+            get selectedItems() {
+                return this._data.filter(item => item.Selected === "true");
+            }
+
+            updateSelection(value, isSelected) {
+                const item = this._data.find(item => item.Value === value);
+                if (item) {
+                    item.Selected = isSelected ? "true" : "false";
+                    this._notifyObservers();
+                }
+            }
+
+            selectAll() {
+                this._data.forEach(item => item.Selected = "true");
+                this._notifyObservers();
+            }
+
+            clearAll() {
+                this._data.forEach(item => item.Selected = "false");
+                this._notifyObservers();
+            }
+
+            loadData(newData) {
+                if (Array.isArray(newData)) {
+                    this._data = [...newData];
+                    this._notifyObservers();
+                }
+            }
+
+            addObserver(observer) {
+                this._observers.push(observer);
+            }
+
+            _notifyObservers() {
+                this._observers.forEach(observer => observer(this._data));
+            }
+        }
+
+        // UI rendering class - Single Responsibility
+        class FocusUIRenderer {
+            constructor(gridElement, dataManager) {
+                this.gridElement = gridElement;
+                this.dataManager = dataManager;
+                this.focusItems = [];
+            }
+
+            render() {
+                try {
+                    this.gridElement.innerHTML = '';
+                    this.focusItems = [];
+
+                    this.dataManager.data.forEach(item => {
+                        const focusItem = this._createFocusItem(item);
+                        this.gridElement.appendChild(focusItem);
+                        this.focusItems.push(focusItem);
+                    });
+
+                    return this.focusItems;
+                } catch (error) {
+                    ErrorHandler.handleError(error, 'FocusUIRenderer.render');
+                    return [];
+                }
+            }
+
+            _createFocusItem(item) {
+                const focusItem = document.createElement('div');
+                focusItem.className = 'gh-focus-item';
+                focusItem.setAttribute('data-focus', `focus-${item.Value}`);
+                focusItem.setAttribute('data-value', item.Value);
+                focusItem.setAttribute('role', CONFIG.aria.roles.gridcell);
+                focusItem.setAttribute('tabindex', '0');
+                focusItem.setAttribute('aria-pressed', item.Selected === "true" ? "true" : "false");
+                focusItem.textContent = item.Text;
+
+                if (item.Selected === "true") {
+                    focusItem.classList.add('selected');
+                }
+
+                return focusItem;
+            }
+
+            updateSelectionState(value, isSelected) {
+                const element = this.focusItems.find(item =>
+                    item.getAttribute('data-value') === value
+                );
+                if (element) {
+                    element.classList.toggle('selected', isSelected);
+                    element.setAttribute('aria-pressed', isSelected ? "true" : "false");
+                }
+            }
+
+            getFocusItems() {
+                return this.focusItems;
+            }
+        }
+
+        // Event handling class - Single Responsibility
+        class FocusEventHandler {
+            constructor(dataManager, uiRenderer) {
+                this.dataManager = dataManager;
+                this.uiRenderer = uiRenderer;
+                this.currentFocusIndex = -1;
+                this._bindEvents();
+            }
+
+            _bindEvents() {
+                // Click events and keyboard events for each focus item
+                this.uiRenderer.getFocusItems().forEach(item => {
+                    item.addEventListener('click', this._handleItemClick.bind(this));
+                    item.addEventListener('focus', this._handleItemFocus.bind(this));
+                    item.addEventListener('keydown', this._handleKeyboard.bind(this));
+
+                    // Test event binding
+                    console.log('Event bound to item:', item, 'with value:', item.getAttribute('data-value'));
+                });
+
+                document.addEventListener('click', this._handleDocumentClick.bind(this));
+            }
+
+            _handleItemClick(event) {
+                try {
+                    const item = event.currentTarget;
+                    const value = item.getAttribute('data-value');
+                    const isSelected = item.classList.contains('selected');
+
+                    this.dataManager.updateSelection(value, !isSelected);
+                    this.uiRenderer.updateSelectionState(value, !isSelected);
+                } catch (error) {
+                    ErrorHandler.handleError(error, 'FocusEventHandler._handleItemClick');
+                }
+            }
+
+            _handleItemFocus(event) {
+                // Track which item currently has focus
+                const focusItems = this.uiRenderer.getFocusItems();
+                const focusedIndex = focusItems.indexOf(event.currentTarget);
+                if (focusedIndex !== -1) {
+                    this.currentFocusIndex = focusedIndex;
+                }
+            }
+
+            _handleKeyboard(event) {
+                const { keys } = CONFIG.keyboard;
+
+                console.log('Keyboard event:', event.key, 'on element:', event.currentTarget);
+
+                if ([keys.space, keys.enter, keys.escape].includes(event.key)) {
+                    event.preventDefault();
+                    this._processKeyboardNavigation(event);
+                }
+                // Don't prevent default for Tab - let it work naturally
+            }
+
+            _processKeyboardNavigation(event) {
+                try {
+                    const { keys } = CONFIG.keyboard;
+                    const focusItems = this.uiRenderer.getFocusItems();
+
+                    switch (event.key) {
+                        case keys.space:
+                        case keys.enter:
+                            this._handleSelectionToggle(focusItems);
+                            break;
+                        case keys.escape:
+                            this._clearKeyboardFocus(focusItems);
+                            break;
+                    }
+                } catch (error) {
+                    ErrorHandler.handleError(error, 'FocusEventHandler._processKeyboardNavigation');
+                }
+            }
+
+            _handleTabNavigation(isShiftKey, focusItems) {
+                if (isShiftKey) {
+                    this.currentFocusIndex = this.currentFocusIndex <= 0
+                        ? focusItems.length - 1
+                        : this.currentFocusIndex - 1;
+                } else {
+                    this.currentFocusIndex = this.currentFocusIndex >= focusItems.length - 1
+                        ? 0
+                        : this.currentFocusIndex + 1;
+                }
+
+                this._updateKeyboardFocus(focusItems);
+            }
+
+            _handleSelectionToggle(focusItems) {
+                // Get the currently focused element from the document
+                const activeElement = document.activeElement;
+                console.log('Selection toggle - Active element:', activeElement);
+                console.log('Selection toggle - Active element classes:', activeElement?.classList);
+
+                if (activeElement && activeElement.classList.contains('gh-focus-item')) {
+                    const value = activeElement.getAttribute('data-value');
+                    const isSelected = activeElement.classList.contains('selected');
+
+                    console.log('Selection toggle - Value:', value, 'Current selection:', isSelected);
+
+                    this.dataManager.updateSelection(value, !isSelected);
+                    this.uiRenderer.updateSelectionState(value, !isSelected);
+                    this._animateSelection(activeElement);
+                } else {
+                    console.log('Selection toggle - No valid focus item found');
+                }
+            }
+
+            _animateSelection(item) {
+                const { scale, duration } = CONFIG.keyboard.animation;
+                item.style.transform = `scale(${scale})`;
+                setTimeout(() => {
+                    item.style.transform = 'scale(1)';
+                }, duration);
+            }
+
+            _updateKeyboardFocus(focusItems) {
+                focusItems.forEach(item => item.classList.remove('gh-keyboard-focus'));
+
+                if (this.currentFocusIndex >= 0 && this.currentFocusIndex < focusItems.length) {
+                    const targetItem = focusItems[this.currentFocusIndex];
+                    targetItem.classList.add('gh-keyboard-focus');
+                    targetItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }
+
+            _clearKeyboardFocus(focusItems) {
+                focusItems.forEach(item => item.classList.remove('gh-keyboard-focus'));
+                this.currentFocusIndex = -1;
+            }
+
+            _handleDocumentClick(event) {
+                if (!event.target.classList.contains('gh-focus-item')) {
+                    this._clearKeyboardFocus(this.uiRenderer.getFocusItems());
+                }
+            }
+
+            rebindEvents() {
+                // Bind new events
+                this._bindEvents();
+                // Set initial focus to first item for better keyboard navigation
+                const focusItems = this.uiRenderer.getFocusItems();
+                if (focusItems.length > 0) {
+                    focusItems[0].focus();
+                }
+            }
+
+
+        }
+
+        // Action button handler class - Single Responsibility
+        class ActionButtonHandler {
+            constructor(dataManager, uiRenderer) {
+                this.dataManager = dataManager;
+                this.uiRenderer = uiRenderer;
+                this._bindActionButtons();
+            }
+
+            _bindActionButtons() {
+                try {
+                    const selectAllBtn = document.querySelector(CONFIG.selectors.selectAllBtn);
+                    const clearAllBtn = document.querySelector(CONFIG.selectors.clearAllBtn);
+                    const saveBtn = document.querySelector(CONFIG.selectors.saveBtn);
+
+                    if (selectAllBtn) {
+                        selectAllBtn.addEventListener('click', this._handleSelectAll.bind(this));
+                    }
+
+                    if (clearAllBtn) {
+                        clearAllBtn.addEventListener('click', this._handleClearAll.bind(this));
+                    }
+
+                    if (saveBtn) {
+                        saveBtn.addEventListener('click', this._handleSave.bind(this));
+                    }
+                } catch (error) {
+                    ErrorHandler.handleError(error, 'ActionButtonHandler._bindActionButtons');
+                }
+            }
+
+            _handleSelectAll(event) {
+                event.preventDefault();
+                this.dataManager.selectAll();
+                this._updateAllUIStates(true);
+            }
+
+            _handleClearAll(event) {
+                event.preventDefault();
+                this.dataManager.clearAll();
+                this._updateAllUIStates(false);
+            }
+
+            _handleSave(event) {
+                event.preventDefault();
+                try {
+                    const selectedItems = this.dataManager.selectedItems;
+                    const allData = this.dataManager.data;
+
+                    // Console logging for debugging and data inspection
+                    console.log("=== SAVE OPERATION ===");
+                    console.log("Selected Items:", selectedItems);
+                    console.log("Full JSON Object:", JSON.stringify(allData, null, 2));
+                    console.log("Selected Count:", selectedItems.length);
+                    console.log("Total Items:", allData.length);
+                    console.log("=====================");
+
+                    // Show success message
+                    alert(`Visit focus saved successfully! ${selectedItems.length} items selected.`);
+                } catch (error) {
+                    ErrorHandler.handleError(error, 'ActionButtonHandler._handleSave');
+                    alert('Error saving data. Please try again.');
+                }
+            }
+
+            _updateAllUIStates(isSelected) {
+                this.uiRenderer.getFocusItems().forEach(item => {
+                    const value = item.getAttribute('data-value');
+                    this.uiRenderer.updateSelectionState(value, isSelected);
+                });
+            }
+        }
+
+        // Main controller class - orchestrates all components
+        class FocusController {
+            constructor() {
+                this.dataManager = null;
+                this.uiRenderer = null;
+                this.eventHandler = null;
+                this.actionHandler = null;
+            }
+
+            initialize() {
+                try {
+                    // Initialize components
+                    this._initializeComponents();
+
+                    // Set up observers
+                    this._setupObservers();
+
+                    // Initial render
+                    this.uiRenderer.render();
+
+                    // Re-render focus items after DOM creation
+                    setTimeout(() => {
+                        this.eventHandler.rebindEvents();
+                    }, 0);
+
+                    // Expose API globally
+                    this._exposeAPI();
+
+                } catch (error) {
+                    ErrorHandler.handleError(error, 'FocusController.initialize');
+                }
+            }
+
+            _initializeComponents() {
+                const gridElement = ErrorHandler.validateElement(
+                    document.querySelector(CONFIG.selectors.grid),
+                    CONFIG.selectors.grid
+                );
+
+                this.dataManager = new FocusDataManager(CONFIG.data.defaultItems);
+                this.uiRenderer = new FocusUIRenderer(gridElement, this.dataManager);
+                this.eventHandler = new FocusEventHandler(this.dataManager, this.uiRenderer);
+                this.actionHandler = new ActionButtonHandler(this.dataManager, this.uiRenderer);
+            }
+
+            _setupObservers() {
+                this.dataManager.addObserver(() => {
+                    // Could trigger UI updates or other side effects here
+                    console.log('Data updated:', this.dataManager.data);
+                });
+            }
+
+            _exposeAPI() {
+                window.visitFocusManager = {
+                    loadFocusData: (data) => this.dataManager.loadData(data),
+                    getCurrentData: () => this.dataManager.data,
+                    getSelectedItems: () => this.dataManager.selectedItems,
+                    selectAll: () => this.actionHandler._handleSelectAll({ preventDefault: () => { } }),
+                    clearAll: () => this.actionHandler._handleClearAll({ preventDefault: () => { } }),
+                    save: () => this.actionHandler._handleSave({ preventDefault: () => { } })
+                };
+            }
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                const controller = new FocusController();
+                controller.initialize();
+
+                // Test keyboard functionality after a short delay
+                setTimeout(() => {
+                    console.log('=== TESTING KEYBOARD FUNCTIONALITY ===');
+                    console.log('Focus items:', document.querySelectorAll('.gh-focus-item').length);
+                    console.log('First focus item:', document.querySelector('.gh-focus-item'));
+                    console.log('Active element:', document.activeElement);
+                    console.log('=====================================');
+                }, 1000);
+
+            } catch (error) {
+                ErrorHandler.handleError(error, 'Main initialization');
+                console.error('Failed to initialize focus controller');
+            }
+        });
+    </script>
+</body>
+
+</html>
