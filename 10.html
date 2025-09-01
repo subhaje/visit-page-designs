@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Reservation Planner | Greenheck Customer Visit Planner</title>
+    <meta
+      name="description"
+      content="Reservation planner for Greenheck Customer Visit Planner."
+    />
+    <meta
+      property="og:title"
+      content="Reservation Planner | Greenheck Customer Visit Planner"
+    />
+    <meta
+      property="og:description"
+      content="Reservation planner for Greenheck Customer Visit Planner."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="Greenheck_Logo_Horiz_Blue@2x.png" />
+    <meta property="og:url" content="https://www.greenheck.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Reservation Planner | Greenheck Customer Visit Planner"
+    />
+    <meta
+      name="twitter:description"
+      content="Reservation planner for Greenheck Customer Visit Planner."
+    />
+    <meta name="twitter:image" content="Greenheck_Logo_Horiz_Blue@2x.png" />
+    <link
+      rel="canonical"
+      href="https://www.greenheck.com/reservation-planner"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Greenheck Fan Corporation",
+        "url": "https://www.greenheck.com/",
+        "logo": "Greenheck_Logo_Horiz_Blue@2x.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+17153596171",
+          "contactType": "customer service"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "P.O. BOX 410",
+          "addressLocality": "Schofield",
+          "addressRegion": "WI",
+          "postalCode": "54476"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Greenheck Customer Visit",
+        "startDate": "2025-08-18",
+        "endDate": "2025-08-18",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Schofield, WI",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Schofield",
+            "addressRegion": "WI"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "Greenheck Fan Corporation"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "David Nallick",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Greenheck Fan Corporation"
+        }
+      }
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="stylesheet" href="styles/base.css" />
+    <style>
+      .gh-visit-focus-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 8px;
+        max-width: 100%;
+        border: 1px solid #d1d5db;
+        padding: 12px;
+        border-radius: 6px;
+      }
+
+      .gh-focus-item {
+        padding: 8px 12px;
+        border-radius: 4px;
+        background: #f9fafb;
+        color: #374151;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: "HelveticaNeue-Medium", sans-serif;
+        font-size: 15px;
+        text-align: center;
+        user-select: none;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.2;
+        position: relative;
+        transform: scale(1);
+        transition: all 0.2s ease, transform 0.15s ease;
+      }
+
+      .gh-focus-item:hover {
+        background: #f3f4f6;
+      }
+
+      .gh-focus-item.selected {
+        background: var(--gh-secondary);
+        color: white;
+      }
+
+      .gh-focus-item.gh-keyboard-focus {
+        outline: 3px solid var(--gh-primary);
+        outline-offset: 2px;
+        box-shadow: 0 0 0 1px rgba(7, 86, 151, 0.3);
+      }
+
+      .gh-focus-item.gh-keyboard-focus:not(.selected) {
+        background: #e3f2fd;
+        border: 1px solid var(--gh-primary);
+      }
+
+      .gh-focus-actions {
+        display: flex;
+        gap: 27px;
+        margin-bottom: 20px;
+        margin-top: 8px;
+      }
+
+      .gh-focus-actions a {
+        color: var(--gh-primary);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      .gh-focus-actions a:hover {
+        text-decoration: underline;
+      }
+
+      .gh-keyboard-help {
+        margin-bottom: 16px;
+        color: #6b7280;
+        font-family: "HelveticaNeue-Roman", sans-serif;
+      }
+
+      .gh-keyboard-help kbd {
+        background: #f3f4f6;
+        border: 1px solid #d1d5db;
+        border-radius: 3px;
+        padding: 2px 6px;
+        font-size: 11px;
+        font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+        color: #374151;
+      }
+
+      .gh-company-name {
+        font-family: "HelveticaNeue-Bold", sans-serif;
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 16px;
+      }
+
+      .gh-section-with-icon {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      .gh-check-icon {
+        color: var(--gh-accent);
+        /* font-size: 20px; */
+      }
+
+      .gh-question-icon {
+        color: #6b7280;
+        font-size: 16px;
+        cursor: help;
+      }
+
+      .gh-textarea-container {
+        position: relative;
+        margin-bottom: 16px;
+      }
+
+      .gh-char-counter {
+        position: absolute;
+        bottom: 8px;
+        right: 12px;
+        font-size: 12px;
+        color: #6b7280;
+        font-family: "HelveticaNeue-Roman", sans-serif;
+      }
+
+      .gh-textarea-large {
+        width: 100%;
+        min-height: 120px;
+        padding: 16px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-family: "HelveticaNeue-Roman", sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        resize: vertical;
+        box-sizing: border-box;
+      }
+
+      .gh-textarea-large:focus {
+        outline: none;
+        border-color: var(--gh-primary);
+        box-shadow: 0 0 0 3px rgba(7, 86, 151, 0.1);
+      }
+
+      /* Responsive grid adjustments */
+      @media (max-width: 1200px) {
+        .gh-visit-focus-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .gh-visit-focus-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .gh-visit-focus-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="gh-header">
+      <div class="gh-header-container">
+        <div class="gh-header-left">
+          <a href="/" target="_blank">
+            <img
+              src="Greenheck_Logo_Horiz_Blue@2x.png"
+              alt="Greenheck Logo"
+              class="gh-logo"
+              loading="lazy"
+              srcset="
+                Greenheck_Logo_Horiz_Blue@2x.png 2x,
+                Greenheck_Logo_Horiz_Blue@2x.png 1x
+              "
+            />
+          </a>
+        </div>
+        <div class="gh-header-right">
+          <div class="gh-user-info">
+            <span class="material-symbols-outlined" aria-hidden="true"
+              >person_outline</span
+            >
+            <span class="gh-user-info-text">Welcome, David Nallick</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="gh-main gh-main-form">
+      <div class="gh-main-title">
+        <h1 class="gh-page-title">Reservation Planner</h1>
+        <div class="gh-text-right">
+          <a class="gh-btn gh-btn-outline" href="index.html">
+            Return to My Visits
+          </a>
+        </div>
+      </div>
+
+      <section class="gh-form-section gh-maxw-1246">
+        <h2 class="gh-form-title gh-form-title-left">Visit Summary:</h2>
+        <table class="gh-table-medium">
+          <thead>
+            <tr>
+              <th>Arrival Date</th>
+              <th>Location</th>
+              <th>Customer Visit</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>08/18/2025</td>
+              <td class="gh-table-regular-font">Schofield, WI</td>
+              <td>Customer Visit - Schofield - 8/18/2025</td>
+              <td>In Progress</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="gh-summary-help">
+          Need to modify your customer visit date? Contact
+          <a href="mailto:customervisit@greenheck.com" rel="noopener noreferrer"
+            >customervisit@greenheck.com</a
+          >
+        </div>
+
+        <div class="gh-summary-row">
+          <div class="gh-summary-item">
+            <strong>Visit Contact:</strong>
+            <span class="gh-font-helvetica-neue-roman">Gary Fischbach</span>
+            <a href="#" class="gh-font-helvetica-neue-medium">| Edit Contact</a>
+          </div>
+          <div class="gh-summary-item">
+            <strong>Host Office:</strong>
+            <span class="gh-font-helvetica-neue-roman"
+              >TMS JOHNSON INC - 1344</span
+            >
+            <a href="#" class="gh-font-helvetica-neue-medium"
+              >| Edit Office #</a
+            >
+          </div>
+          <div class="gh-summary-item">
+            <strong>Area Sales Manager:</strong>
+            <span class="gh-font-helvetica-neue-roman"
+              >Eric Tufto - North Central</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="gh-form-section gh-maxw-1246">
+        <div class="gh-section-header gh-section-header-between">
+          <h2 class="gh-form-title gh-form-title-left">
+            <span class="gh-section-with-icon">
+              Rep Attendees
+              <span class="gh-check-icon material-symbols-outlined"
+                >check_circle</span
+              >
+            </span>
+          </h2>
+          <button type="button" class="gh-btn-table">Add a Rep Attendee</button>
+        </div>
+
+        <table class="gh-table-medium">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Name on Badge</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fischbach, Gary</td>
+              <td>Gary</td>
+              <td>
+                <a href="#" class="gh-font-helvetica-neue-medium"
+                  >View / Edit</a
+                >
+                <a href="#" class="gh-font-helvetica-neue-medium">Remove</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="gh-form-section gh-maxw-1246">
+        <div class="gh-section-header gh-section-header-between">
+          <h2 class="gh-form-title gh-form-title-left">
+            <span class="gh-section-with-icon">
+              Customer Attendees
+              <span class="gh-check-icon material-symbols-outlined"
+                >check_circle</span
+              >
+            </span>
+          </h2>
+          <button type="button" class="gh-btn-table">
+            Add a Customer Attendee
+          </button>
+        </div>
+
+        <div class="gh-company-name">NSI MECHANICAL</div>
+
+        <table class="gh-table-medium">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Name on Badge</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Callaghan, Emma</td>
+              <td>Emma</td>
+              <td>
+                <a href="#" class="gh-font-helvetica-neue-medium"
+                  >View / Edit</a
+                >
+                <a href="#" class="gh-font-helvetica-neue-medium">Remove</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top: 16px">
+          <a href="#" class="gh-font-helvetica-neue-medium"
+            >+ ADD ATTENDEE FOR THIS COMPANY</a
+          >
+        </div>
+      </section>
+
+      <section class="gh-form-section gh-maxw-1246">
+        <div class="gh-section-header gh-section-header-between">
+          <h2 class="gh-form-title gh-form-title-left">
+            <span class="gh-section-with-icon">
+              Visit Focus
+              <span class="gh-check-icon material-symbols-outlined"
+                >check_circle</span
+              >
+            </span>
+          </h2>
+        </div>
+
+        <p
+          style="
+            margin-bottom: 20px;
+            color: #333;
+            font-family: 'HelveticaNeue-Roman', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 7px 0;
+          "
+        >
+          Select Areas of Interest
+        </p>
+
+        <div class="gh-focus-actions">
+          <a href="#" id="save-focus">Save</a>
+          <a href="#" id="select-all-focus">Select All</a>
+          <a href="#" id="clear-all-focus">Clear All</a>
+        </div>
+
+        <div
+          class="gh-visit-focus-grid"
+          id="visit-focus-grid"
+          role="grid"
+          aria-label="Visit Focus Areas"
+        >
+          <!-- Dynamic focus items will be generated here -->
+        </div>
+      </section>
+
+      <section class="gh-form-section gh-maxw-1246">
+        <div class="gh-section-header">
+          <h2 class="gh-form-title gh-form-title-left">
+            <span class="gh-section-with-icon">
+              Company Background(s)
+              <span class="gh-question-icon material-symbols-outlined"
+                >help</span
+              >
+            </span>
+          </h2>
+        </div>
+
+        <div class="gh-textarea-container">
+          <textarea
+            class="gh-textarea-large"
+            id="company-background"
+            placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+            maxlength="1200"
+          ></textarea>
+          <div class="gh-char-counter" id="char-counter">0/1200</div>
+        </div>
+
+        <div style="margin-top: 16px">
+          <a href="#" id="save-background" class="gh-font-helvetica-neue-medium"
+            >Save</a
+          >
+        </div>
+      </section>
+
+      <footer class="gh-footer">
+        <div class="gh-back-link">
+          <a href="index.html" class="gh-btn gh-btn-outline"
+            >Return to My Visits</a
+          >
+        </div>
+        <div class="gh-footer-logo">
+          <img
+            src="Greenheck_Logo_Horiz_Blue@2x.png"
+            alt="Greenheck Logo"
+            class="gh-footer-logo-img"
+          />
+        </div>
+        <div class="gh-footer-address">
+          &copy; <span id="year"></span> Greenheck Fan Corporation. All rights
+          reserved. P.O. BOX 410 | Schofield, WI 54476 |
+          <a href="tel:+17153596171">(715) 359-6171</a>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      // Initialize the page
+      document.addEventListener("DOMContentLoaded", function () {
+        // Set current year
+        const yearEl = document.getElementById("year");
+        if (yearEl) {
+          yearEl.textContent = new Date().getFullYear();
+        }
+
+        // Initialize visit focus selection
+        initVisitFocus();
+
+        // Initialize character counter
+        initCharacterCounter();
+
+        // Initialize save functionality
+        initSaveFunctions();
+      });
+
+      // Visit Focus functionality
+      function initVisitFocus() {
+        const focusGrid = document.getElementById("visit-focus-grid");
+        const selectAllBtn = document.getElementById("select-all-focus");
+        const clearAllBtn = document.getElementById("clear-all-focus");
+        let currentFocusIndex = -1;
+        let focusItems = [];
+
+        // Focus items data from JSON
+        const focusItemsData = [
+          { Text: "Power Roof Ventilators", Value: "1", Selected: "false" },
+          { Text: "Commercial Dampers", Value: "2", Selected: "false" },
+          { Text: "Ceiling / Bathroom Exhaust", Value: "3", Selected: "false" },
+          { Text: "Industrial Dampers", Value: "4", Selected: "false" },
+          { Text: "Axial /Inline / HVLS", Value: "5", Selected: "false" },
+          { Text: "Louvers", Value: "6", Selected: "false" },
+          { Text: "Centrifugal and Vane Axial", Value: "7", Selected: "false" },
+          {
+            Text: "Grills, Registers, Diffusers",
+            Value: "8",
+            Selected: "false",
+          },
+          { Text: "Laboratory / Fume Exhaust", Value: "9", Selected: "true" },
+          { Text: "Air Terminal Units", Value: "10", Selected: "false" },
+          { Text: "Motor Technology", Value: "11", Selected: "false" },
+          {
+            Text: "System Effects Demonstration",
+            Value: "12",
+            Selected: "false",
+          },
+          { Text: "Make-up Air", Value: "13", Selected: "false" },
+          { Text: "Kitchen Ventilation", Value: "14", Selected: "true" },
+          { Text: "Energy Recovery", Value: "15", Selected: "false" },
+          {
+            Text: "Kitchen Ventilation Systems",
+            Value: "16",
+            Selected: "false",
+          },
+          {
+            Text: "Dedicated Outdoor Air Systems",
+            Value: "17",
+            Selected: "false",
+          },
+          { Text: "Ecaps", Value: "18", Selected: "false" },
+          { Text: "Revit", Value: "19", Selected: "false" },
+        ];
+
+        // Generate focus items dynamically
+        function generateFocusItems() {
+          focusGrid.innerHTML = "";
+
+          focusItemsData.forEach((item, index) => {
+            const focusItem = document.createElement("div");
+            focusItem.className = "gh-focus-item";
+            focusItem.setAttribute("data-focus", `focus-${item.Value}`);
+            focusItem.setAttribute("data-value", item.Value);
+            focusItem.setAttribute("role", "gridcell");
+            focusItem.setAttribute("tabindex", "0");
+            focusItem.setAttribute(
+              "aria-pressed",
+              item.Selected === "true" ? "true" : "false"
+            );
+            focusItem.textContent = item.Text;
+
+            // Set initial selection state
+            if (item.Selected === "true") {
+              focusItem.classList.add("selected");
+            }
+
+            focusGrid.appendChild(focusItem);
+          });
+
+          // Update focusItems reference after generation
+          focusItems = document.querySelectorAll(".gh-focus-item");
+        }
+
+        // Generate the focus items
+        generateFocusItems();
+
+        // Function to update the data structure
+        function updateFocusData() {
+          focusItemsData.forEach((item) => {
+            const element = document.querySelector(
+              `[data-value="${item.Value}"]`
+            );
+            if (element) {
+              item.Selected = element.classList.contains("selected")
+                ? "true"
+                : "false";
+            }
+          });
+        }
+
+        // Function to load focus data from external source
+        function loadFocusData(data) {
+          if (Array.isArray(data)) {
+            focusItemsData.length = 0; // Clear existing data
+            focusItemsData.push(...data);
+            generateFocusItems();
+            setupEventListeners();
+          }
+        }
+
+        // Setup event listeners for focus items
+        function setupEventListeners() {
+          // Toggle selection on click
+          focusItems.forEach((item) => {
+            item.addEventListener("click", function () {
+              this.classList.toggle("selected");
+              this.setAttribute(
+                "aria-pressed",
+                this.classList.contains("selected")
+              );
+              updateFocusData();
+            });
+          });
+        }
+
+        // Initial setup of event listeners
+        setupEventListeners();
+
+        // Expose functions globally for external access
+        window.visitFocusManager = {
+          loadFocusData: loadFocusData,
+          getCurrentData: () => [...focusItemsData],
+          getSelectedItems: () => {
+            const selectedItems = document.querySelectorAll(
+              ".gh-focus-item.selected"
+            );
+            return Array.from(selectedItems).map((item) => ({
+              text: item.textContent,
+              value: item.getAttribute("data-value"),
+            }));
+          },
+        };
+
+        // Keyboard navigation and selection
+        document.addEventListener("keydown", function (e) {
+          if (
+            e.key === "Tab" ||
+            e.key === " " ||
+            e.key === "Enter" ||
+            e.key === "Escape"
+          ) {
+            e.preventDefault();
+
+            if (e.key === "Tab") {
+              // Navigate through focus items
+              if (e.shiftKey) {
+                // Shift+Tab: Move backward
+                currentFocusIndex =
+                  currentFocusIndex <= 0
+                    ? focusItems.length - 1
+                    : currentFocusIndex - 1;
+              } else {
+                // Tab: Move forward
+                currentFocusIndex =
+                  currentFocusIndex >= focusItems.length - 1
+                    ? 0
+                    : currentFocusIndex + 1;
+              }
+
+              // Remove previous focus
+              focusItems.forEach((item) =>
+                item.classList.remove("gh-keyboard-focus")
+              );
+
+              // Add focus to current item
+              if (
+                currentFocusIndex >= 0 &&
+                currentFocusIndex < focusItems.length
+              ) {
+                focusItems[currentFocusIndex].classList.add(
+                  "gh-keyboard-focus"
+                );
+                focusItems[currentFocusIndex].scrollIntoView({
+                  behavior: "smooth",
+                  block: "nearest",
+                });
+              }
+            } else if (e.key === " " || e.key === "Enter") {
+              // Spacebar or Enter: Toggle selection of focused item
+              if (
+                currentFocusIndex >= 0 &&
+                currentFocusIndex < focusItems.length
+              ) {
+                const currentItem = focusItems[currentFocusIndex];
+                currentItem.classList.toggle("selected");
+
+                // Provide visual feedback
+                currentItem.style.transform = "scale(0.95)";
+                currentItem.setAttribute(
+                  "aria-pressed",
+                  currentItem.classList.contains("selected")
+                );
+                updateFocusData();
+                setTimeout(() => {
+                  currentItem.style.transform = "scale(1)";
+                }, 150);
+              }
+            } else if (e.key === "Escape") {
+              // Escape: Clear keyboard focus
+              focusItems.forEach((item) =>
+                item.classList.remove("gh-keyboard-focus")
+              );
+              currentFocusIndex = -1;
+            }
+          }
+        });
+
+        // Remove keyboard focus when clicking elsewhere
+        document.addEventListener("click", function (e) {
+          if (!e.target.classList.contains("gh-focus-item")) {
+            focusItems.forEach((item) =>
+              item.classList.remove("gh-keyboard-focus")
+            );
+            currentFocusIndex = -1;
+          }
+        });
+
+        // Select all functionality
+        if (selectAllBtn) {
+          selectAllBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            focusItems.forEach((item) => {
+              item.classList.add("selected");
+              item.setAttribute("aria-pressed", "true");
+            });
+          });
+        }
+
+        // Clear all functionality
+        if (clearAllBtn) {
+          clearAllBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            focusItems.forEach((item) => {
+              item.classList.remove("selected");
+              item.setAttribute("aria-pressed", "false");
+            });
+          });
+        }
+      }
+
+      // Character counter functionality
+      function initCharacterCounter() {
+        const textarea = document.getElementById("company-background");
+        const counter = document.getElementById("char-counter");
+
+        if (textarea && counter) {
+          textarea.addEventListener("input", function () {
+            const currentLength = this.value.length;
+            const maxLength = this.maxLength;
+            counter.textContent = `${currentLength}/${maxLength}`;
+          });
+        }
+      }
+
+      // Save functionality
+      function initSaveFunctions() {
+        const saveFocusBtn = document.getElementById("save-focus");
+        const saveBackgroundBtn = document.getElementById("save-background");
+
+        if (saveFocusBtn) {
+          saveFocusBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            const selectedItems = document.querySelectorAll(
+              ".gh-focus-item.selected"
+            );
+
+            // Create updated data structure with current selection state
+            const updatedFocusData = focusItemsData.map((item) => {
+              const element = document.querySelector(
+                `[data-value="${item.Value}"]`
+              );
+              return {
+                ...item,
+                Selected:
+                  element && element.classList.contains("selected")
+                    ? "true"
+                    : "false",
+              };
+            });
+
+            const selectedFocus = Array.from(selectedItems).map((item) => ({
+              text: item.textContent,
+              value: item.getAttribute("data-value"),
+            }));
+
+            console.log("Saving visit focus:", selectedFocus);
+            console.log("Updated focus data:", updatedFocusData);
+            // Here you would typically send data to server
+            alert("Visit focus saved successfully!");
+          });
+        }
+
+        if (saveBackgroundBtn) {
+          saveBackgroundBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            const backgroundText =
+              document.getElementById("company-background").value;
+            console.log("Saving company background:", backgroundText);
+            // Here you would typically send data to server
+            alert("Company background saved successfully!");
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,112 +1,112 @@
 @font-face {
-  font-family: 'HelveticaNeue-UltraLight';
-  src: url('../assets/font/helvetica-neue-5/HelveticaNeueUltraLight.otf')
-    format('opentype');
+  font-family: "HelveticaNeue-UltraLight";
+  src: url("../assets/font/helvetica-neue-5/HelveticaNeueUltraLight.otf")
+    format("opentype");
   font-weight: 200;
   font-style: normal;
 }
 @font-face {
-  font-family: 'HelveticaNeue-UltraLightItalic';
-  src: url('../assets/font/helvetica-neue-5/HelveticaNeueUltraLightItalic.otf')
-    format('opentype');
+  font-family: "HelveticaNeue-UltraLightItalic";
+  src: url("../assets/font/helvetica-neue-5/HelveticaNeueUltraLightItalic.otf")
+    format("opentype");
   font-weight: 200;
   font-style: italic;
 }
 @font-face {
-  font-family: 'HelveticaNeue-Thin';
-  src: url('../assets/font/helvetica-neue-5/HelveticaNeueThin.otf')
-    format('opentype');
+  font-family: "HelveticaNeue-Thin";
+  src: url("../assets/font/helvetica-neue-5/HelveticaNeueThin.otf")
+    format("opentype");
   font-weight: 100;
   font-style: normal;
 }
 @font-face {
-  font-family: 'HelveticaNeue-ThinItalic';
-  src: url('../assets/font/helvetica-neue-5/HelveticaNeueThinItalic.otf')
-    format('opentype');
+  font-family: "HelveticaNeue-ThinItalic";
+  src: url("../assets/font/helvetica-neue-5/HelveticaNeueThinItalic.otf")
+    format("opentype");
   font-weight: 100;
   font-style: italic;
 }
 @font-face {
-  font-family: 'HelveticaNeue-Light';
-  src: url('../assets/font/helvetica-neue-5/HelveticaNeueLight.otf')
-    format('opentype');
+  font-family: "HelveticaNeue-Light";
+  src: url("../assets/font/helvetica-neue-5/HelveticaNeueLight.otf")
+    format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
-  font-family: 'HelveticaNeue-LightItalic';
-  src: url('../assets/font/helvetica-neue-5/HelveticaNeueLightItalic.otf')
-    format('opentype');
+  font-family: "HelveticaNeue-LightItalic";
+  src: url("../assets/font/helvetica-neue-5/HelveticaNeueLightItalic.otf")
+    format("opentype");
   font-weight: 300;
   font-style: italic;
 }
 @font-face {
-  font-family: 'HelveticaNeue-Roman';
-  src: url('../assets/font/helvetica-neue-5/HelveticaNeueRoman.otf')
-    format('opentype');
+  font-family: "HelveticaNeue-Roman";
+  src: url("../assets/font/helvetica-neue-5/HelveticaNeueRoman.otf")
+    format("opentype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: 'HelveticaNeue-Italic';
-  src: url('../assets/font/helvetica-neue-5/HelveticaNeueItalic.ttf')
-    format('truetype');
+  font-family: "HelveticaNeue-Italic";
+  src: url("../assets/font/helvetica-neue-5/HelveticaNeueItalic.ttf")
+    format("truetype");
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
-  font-family: 'HelveticaNeue-Medium';
-  src: url('../assets/font/helvetica-neue-5/HelveticaNeueMedium.otf')
-    format('opentype');
+  font-family: "HelveticaNeue-Medium";
+  src: url("../assets/font/helvetica-neue-5/HelveticaNeueMedium.otf")
+    format("opentype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: 'HelveticaNeue-MediumItalic';
-  src: url('../assets/font/helvetica-neue-5/HelveticaNeueMediumItalic.otf')
-    format('opentype');
+  font-family: "HelveticaNeue-MediumItalic";
+  src: url("../assets/font/helvetica-neue-5/HelveticaNeueMediumItalic.otf")
+    format("opentype");
   font-weight: 500;
   font-style: italic;
 }
 @font-face {
-  font-family: 'HelveticaNeue-Bold';
-  src: url('../assets/font/helvetica-neue-5/HelveticaNeueBold.otf')
-    format('opentype');
+  font-family: "HelveticaNeue-Bold";
+  src: url("../assets/font/helvetica-neue-5/HelveticaNeueBold.otf")
+    format("opentype");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: 'HelveticaNeue-BoldItalic';
-  src: url('../assets/font/helvetica-neue-5/HelveticaNeueBoldItalic.otf')
-    format('opentype');
+  font-family: "HelveticaNeue-BoldItalic";
+  src: url("../assets/font/helvetica-neue-5/HelveticaNeueBoldItalic.otf")
+    format("opentype");
   font-weight: 700;
   font-style: italic;
 }
 @font-face {
-  font-family: 'HelveticaNeue-Heavy';
-  src: url('../assets/font/helvetica-neue-5/HelveticaNeueHeavy.otf')
-    format('opentype');
+  font-family: "HelveticaNeue-Heavy";
+  src: url("../assets/font/helvetica-neue-5/HelveticaNeueHeavy.otf")
+    format("opentype");
   font-weight: 800;
   font-style: normal;
 }
 @font-face {
-  font-family: 'HelveticaNeue-HeavyItalic';
-  src: url('../assets/font/helvetica-neue-5/HelveticaNeueHeavyItalic.otf')
-    format('opentype');
+  font-family: "HelveticaNeue-HeavyItalic";
+  src: url("../assets/font/helvetica-neue-5/HelveticaNeueHeavyItalic.otf")
+    format("opentype");
   font-weight: 800;
   font-style: italic;
 }
 @font-face {
-  font-family: 'HelveticaNeue-Black';
-  src: url('../assets/font/helvetica-neue-5/HelveticaNeueBlack.otf')
-    format('opentype');
+  font-family: "HelveticaNeue-Black";
+  src: url("../assets/font/helvetica-neue-5/HelveticaNeueBlack.otf")
+    format("opentype");
   font-weight: 900;
   font-style: normal;
 }
 @font-face {
-  font-family: 'HelveticaNeue-BlackItalic';
-  src: url('../assets/font/helvetica-neue-5/HelveticaNeueBlackItalic.otf')
-    format('opentype');
+  font-family: "HelveticaNeue-BlackItalic";
+  src: url("../assets/font/helvetica-neue-5/HelveticaNeueBlackItalic.otf")
+    format("opentype");
   font-weight: 900;
   font-style: italic;
 }
@@ -116,18 +116,18 @@
   --gh-secondary: #00a8e4;
   --gh-bg: #fff;
   --gh-text: #444;
-  --gh-accent: #006341;
+  --gh-accent: rgba(13, 158, 0, 1);
   --gh-border: #e5e7eb;
   --gh-radius: 0.75rem;
   --gh-spacing: 2rem;
-  --gh-font: 'Roboto', Arial, sans-serif;
-  --gh-font-bold: 'Roboto', Arial, sans-serif;
+  --gh-font: "Roboto", Arial, sans-serif;
+  --gh-font-bold: "Roboto", Arial, sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   font-weight: 500;
 }
 button {
@@ -145,7 +145,7 @@ button:focus {
     display: none;
 } */
 .gh-font-helvetica-neue-roman {
-  font-family: 'HelveticaNeue-Roman', sans-serif;
+  font-family: "HelveticaNeue-Roman", sans-serif;
   font-weight: 400;
 }
 .w-auto {
@@ -158,7 +158,7 @@ button:focus {
   color: #969696 !important;
 }
 .material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 20;
 }
 .hidden,
 [hidden] {
@@ -206,13 +206,13 @@ button:focus {
   font-weight: 700;
   color: var(--gh-primary);
   letter-spacing: 1px;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
 }
 .gh-logo-tagline {
   font-size: 1rem;
   color: #007a53;
   font-weight: 400;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
 }
 .gh-header-right {
   display: flex;
@@ -224,7 +224,7 @@ button:focus {
 .gh-header-title {
   font-size: 38px;
   color: #57585a;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   font-weight: 500;
 }
 .gh-user-info {
@@ -235,7 +235,7 @@ button:focus {
 }
 .gh-user-info-text {
   font-size: 12px;
-  font-family: 'HelveticaNeue-Roman', sans-serif;
+  font-family: "HelveticaNeue-Roman", sans-serif;
   letter-spacing: 0.7px;
   padding-top: 4px;
 }
@@ -258,19 +258,19 @@ button:focus {
   font-size: 2.6rem;
   font-weight: 400;
   text-align: left;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   color: #444;
 }
 .gh-table-regular-font {
   font-size: 18px !important;
-  font-family: 'HelveticaNeue-Roman', sans-serif;
+  font-family: "HelveticaNeue-Roman", sans-serif;
 }
 .gh-page-title {
   font-size: 36px;
   margin: 0 0 15px 0;
   text-align: left;
   color: #57585a;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   font-weight: 500;
 }
 
@@ -278,7 +278,7 @@ button:focus {
   font-size: 22px;
   color: #57585a;
   text-align: left;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   font-weight: 500;
   padding: 0;
   margin: 0;
@@ -315,12 +315,12 @@ button:focus {
   font-size: 1.4rem;
   font-weight: 500;
   margin: 0 0 0.5rem 0;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
 }
 .gh-card p {
   font-size: 18px;
   margin: 0 0 30px 0;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
 }
 .gh-btn {
   padding: 12px 29px 9px 30px;
@@ -332,7 +332,7 @@ button:focus {
   font-weight: 500;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
 }
 .gh-card-secondary .gh-btn {
   color: var(--gh-primary);
@@ -429,7 +429,7 @@ button:focus {
 .gh-table-medium {
   width: 100%;
   border-collapse: collapse;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   font-weight: 500;
   background: #fff;
   margin-bottom: 11px;
@@ -450,7 +450,7 @@ button:focus {
   color: #075697;
   text-decoration: none;
   font-weight: 500;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   margin-right: 10px;
   font-size: 14px;
 }
@@ -467,7 +467,7 @@ button:focus {
 }
 .gh-table-medium th {
   background: var(--gh-primary);
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
 
   text-align: left;
   color: #fff;
@@ -480,7 +480,7 @@ button:focus {
 .gh-table {
   width: 100%;
   border-collapse: collapse;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   font-weight: 500;
   background: #fff;
 }
@@ -535,11 +535,11 @@ td.gh-table-availability {
   border-radius: 2rem;
   padding: 10px 30px;
   font-size: 18px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-  font-variation-settings: 'wdth' 100;
+  font-variation-settings: "wdth" 100;
   cursor: pointer;
   transition: background 0.2s;
 }
@@ -587,7 +587,7 @@ td.gh-table-availability {
 }
 .gh-or-divider:before,
 .gh-or-divider:after {
-  content: '';
+  content: "";
   flex: 1;
   border-bottom: 1.5px solid #e5e7eb;
 }
@@ -601,7 +601,7 @@ td.gh-table-availability {
   font-weight: 500;
   cursor: pointer;
   transition: background 0.2s;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
 }
 .gh-btn-edit:hover,
 .gh-btn-edit:focus {
@@ -763,14 +763,14 @@ td.gh-table-availability {
   gap: 6px;
   padding-bottom: 0;
 }
-input[type='radio'] {
+input[type="radio"] {
   width: 20px;
   height: 20px;
   margin: 0;
   padding: 0;
 }
 .gh-radio-label-text {
-  font-family: 'HelveticaNeue-Bold', sans-serif;
+  font-family: "HelveticaNeue-Bold", sans-serif;
   font-size: 15px;
   color: #333;
   display: inline-block;
@@ -779,7 +779,7 @@ input[type='radio'] {
   box-sizing: border-box;
 }
 .gh-radio-label-text-yn {
-  font-family: 'HelveticaNeue-Roman', sans-serif;
+  font-family: "HelveticaNeue-Roman", sans-serif;
   font-size: 15px;
   color: #333;
 }
@@ -793,19 +793,19 @@ input[type='radio'] {
   font-weight: 700;
   margin-bottom: 13px;
   color: #333;
-  font-family: 'HelveticaNeue-Bold', sans-serif;
+  font-family: "HelveticaNeue-Bold", sans-serif;
 }
 .gh-attendee-from {
   font-size: 14px;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   margin-bottom: -1px;
 }
 .gh-attendee-company {
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   font-size: 15px;
 }
 .gh-attendee-company-name {
-  font-family: 'HelveticaNeue-Bold', sans-serif;
+  font-family: "HelveticaNeue-Bold", sans-serif;
 }
 
 .gh-select {
@@ -817,9 +817,10 @@ input[type='radio'] {
   background: #fff;
   color: #333;
   margin-bottom: 0.5rem;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
 }
-.gh-collapsible-trigger, .gh-collapsible-trigger-id {
+.gh-collapsible-trigger,
+.gh-collapsible-trigger-id {
   display: flex;
   align-items: center;
   gap: 0.3rem;
@@ -827,18 +828,20 @@ input[type='radio'] {
   color: var(--gh-primary);
   margin-top: 1rem;
   font-size: 14px;
-  font-family: 'HelveticaNeue-Roman';
+  font-family: "HelveticaNeue-Roman";
   padding: 0 !important;
 }
 .gh-collapsible-trigger-id {
   margin-top: 4px !important;
   margin-bottom: 16px !important;
 }
- 
-.gh-collapsible-trigger:hover, .gh-collapsible-trigger-id:hover {
+
+.gh-collapsible-trigger:hover,
+.gh-collapsible-trigger-id:hover {
   color: #003e6b;
 }
-.gh-collapsible-trigger:focus, .gh-collapsible-trigger-id:focus {
+.gh-collapsible-trigger:focus,
+.gh-collapsible-trigger-id:focus {
   outline: 2px solid var(--gh-primary);
   outline-offset: 2px;
 }
@@ -847,7 +850,7 @@ input[type='radio'] {
   animation: fadeIn 0.2s;
 }
 
-#additional-info-fields{
+#additional-info-fields {
   margin-top: 25px;
 }
 .gh-label {
@@ -867,7 +870,7 @@ input[type='radio'] {
   border-radius: 4px;
   background: #fff;
   color: #333;
-  font-family: 'HelveticaNeue-Roman', sans-serif;
+  font-family: "HelveticaNeue-Roman", sans-serif;
   line-height: 20px;
   box-sizing: content-box;
   margin-bottom: 10px;
@@ -881,7 +884,7 @@ input[type='radio'] {
 .gh-char-count {
   font-size: 14px;
   color: #333;
-  font-family: 'HelveticaNeue-Roman', sans-serif;
+  font-family: "HelveticaNeue-Roman", sans-serif;
 }
 @keyframes fadeIn {
   from {
@@ -932,7 +935,7 @@ input[type='radio'] {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   font-size: 16px;
   transition: border-radius 0.15s, box-shadow 0.15s;
   padding: 8px 14px;
@@ -941,7 +944,7 @@ input[type='radio'] {
 .gh-select-trigger:hover {
   text-decoration: none !important;
 }
-.gh-custom-select[aria-expanded='true'] .gh-select-trigger {
+.gh-custom-select[aria-expanded="true"] .gh-select-trigger {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-top-left-radius: 4px;
@@ -1011,17 +1014,17 @@ input[type='radio'] {
   font-weight: 400;
 }
 
-.gh-additional-info-collapsed[aria-disabled='true'] {
+.gh-additional-info-collapsed[aria-disabled="true"] {
   color: #bfc7d1;
   cursor: not-allowed;
   opacity: 1;
 }
-.gh-additional-info-collapsed[aria-disabled='true'] .gh-info-icon {
+.gh-additional-info-collapsed[aria-disabled="true"] .gh-info-icon {
   color: #bfc7d1;
 }
 .gh-not-found-label {
   margin: 1.5rem 0 0.5rem;
-  font-family: 'HelveticaNeue-Roman';
+  font-family: "HelveticaNeue-Roman";
   font-size: 14px;
 }
 
@@ -1029,7 +1032,7 @@ input[type='radio'] {
   font-size: 20px;
   transition: transform 0.2s ease-in-out;
 }
-.gh-collapsible-trigger[aria-expanded='true'] .gh-toggle-icon {
+.gh-collapsible-trigger[aria-expanded="true"] .gh-toggle-icon {
   /* transform: rotate(180deg); */
 }
 .gh-collapsible-trigger__icon {
@@ -1066,7 +1069,7 @@ input[type='radio'] {
   font-weight: 700;
   margin-bottom: 18px;
   margin-top: 18px;
-  font-family: 'HelveticaNeue-Bold', sans-serif;
+  font-family: "HelveticaNeue-Bold", sans-serif;
 }
 .gh-selected-attendees {
   margin: 3px 0 0 0;
@@ -1081,7 +1084,7 @@ input[type='radio'] {
 .gh-selected-attendee-name {
   font-size: 15px;
   color: #333;
-  font-family: 'HelveticaNeue-Bold', sans-serif;
+  font-family: "HelveticaNeue-Bold", sans-serif;
 }
 .gh-add-details-link.expanded {
   color: #333 !important;
@@ -1092,7 +1095,7 @@ input[type='radio'] {
   margin: 7px 0;
   color: #969696;
   font-size: 14px;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   text-decoration: none;
   margin-left: 0;
   display: flex;
@@ -1103,7 +1106,7 @@ input[type='radio'] {
   color: #003e6b;
 }
 /* input radio style element like input{} */
-input[type='checkbox'] {
+input[type="checkbox"] {
   margin: 0;
   width: 20px;
   height: 20px;
@@ -1123,7 +1126,7 @@ input[type='checkbox'] {
   gap: 0.5em;
   font-size: 13px;
   color: #333;
-  font-family: 'HelveticaNeue-Roman', sans-serif;
+  font-family: "HelveticaNeue-Roman", sans-serif;
 }
 .gh-checkbox-label-text {
   padding-top: 3px;
@@ -1156,7 +1159,7 @@ input[type='checkbox'] {
   align-items: center;
   gap: 50px;
   margin-bottom: 10px;
-    margin-top: 3px;
+  margin-top: 3px;
 }
 .gh-modal {
   position: fixed;
@@ -1176,7 +1179,7 @@ input[type='checkbox'] {
   background: #fff;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
   padding: 48px 48px 24px !important;
-  margin:auto;
+  margin: auto;
 }
 .gh-modal-overlay {
   position: absolute;
@@ -1220,14 +1223,14 @@ input[type='checkbox'] {
 }
 .gh-form-modal-title {
   font-size: 19px;
-  font-family: 'HelveticaNeue-Bold', sans-serif;
+  font-family: "HelveticaNeue-Bold", sans-serif;
   color: #333;
 }
 
 .gh-add-not-on-list {
   margin: 0 0 0.8rem 0;
   color: #969696;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -1235,7 +1238,7 @@ input[type='checkbox'] {
 }
 .gh-add-not-on-list-text {
   font-size: 14px;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   padding-top: 4px;
 }
 .gh-need-account {
@@ -1247,7 +1250,7 @@ input[type='checkbox'] {
   font-weight: 700;
   font-size: 17px;
   margin: 0 0 0.5rem 0;
-  font-family: 'HelveticaNeue-Bold', sans-serif;
+  font-family: "HelveticaNeue-Bold", sans-serif;
 }
 
 .gh-need-account a {
@@ -1256,7 +1259,7 @@ input[type='checkbox'] {
   color: var(--gh-primary);
   text-decoration: none;
   font-size: 16px;
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   gap: 4px;
 }
 
@@ -1265,7 +1268,7 @@ input[type='checkbox'] {
   color: #003e6b;
 }
 .gh-selected-label {
-  font-family: 'HelveticaNeue-Bold', sans-serif;
+  font-family: "HelveticaNeue-Bold", sans-serif;
   font-size: 19px;
   color: #333;
 }
@@ -1299,8 +1302,8 @@ input[type='checkbox'] {
   gap: 66px;
   /* flex-wrap: wrap; */
 }
-.mt-25{
-  margin-top:25px !important;
+.mt-25 {
+  margin-top: 25px !important;
 }
 .gh-form-col {
   flex: 1;
@@ -1309,7 +1312,7 @@ input[type='checkbox'] {
   gap: 15px;
   justify-content: space-between;
 }
-.gh-form-col > .gh-form-title:first-child{
+.gh-form-col > .gh-form-title:first-child {
   margin-top: 0 !important;
 }
 .gh-travel-form-h3 {
@@ -1442,7 +1445,7 @@ input[type='checkbox'] {
 .gh-rep-attendee-name {
   font-size: 15px;
   color: #333;
-  font-family: 'HelveticaNeue-Bold', sans-serif;
+  font-family: "HelveticaNeue-Bold", sans-serif;
 }
 
 #driving-arrival-date-label,
@@ -1463,7 +1466,7 @@ input[type='checkbox'] {
   border-radius: 4px;
   padding: 12px;
   font-size: 12px;
-  font-family: 'HelveticaNeue-Roman', sans-serif;
+  font-family: "HelveticaNeue-Roman", sans-serif;
   font-weight: 400;
   line-height: 1.4;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
@@ -1482,7 +1485,7 @@ input[type='checkbox'] {
   margin-bottom: 2px;
   padding-bottom: 24px;
 
-  font-family: 'HelveticaNeue-Roman', sans-serif;
+  font-family: "HelveticaNeue-Roman", sans-serif;
   font-weight: 400;
   font-size: 16px;
   justify-content: space-between;
@@ -1499,14 +1502,14 @@ input[type='checkbox'] {
 
 .gh-summary-item > strong,
 .gh-font-helvetica-neue-medium {
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 0.6px;
   text-decoration: none;
 }
 .gh-font-helvetica-neue-medium {
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   font-weight: 500;
 }
 .gh-font-helvetica-neue-medium:hover {
@@ -1516,7 +1519,7 @@ input[type='checkbox'] {
 .gh-summary-help {
   font-size: 0.95rem;
   color: #333; /* Tailwind gray-500 */
-  font-family: 'HelveticaNeue-Medium', sans-serif;
+  font-family: "HelveticaNeue-Medium", sans-serif;
   font-weight: 500;
   margin-bottom: 16px;
   letter-spacing: -0.1px;
@@ -1544,6 +1547,6 @@ input[type='checkbox'] {
   align-self: center;
 }
 
-.gh-modal-content .gh-action-buttons{
-  margin:48px 24px 24px
+.gh-modal-content .gh-action-buttons {
+  margin: 48px 24px 24px;
 }
